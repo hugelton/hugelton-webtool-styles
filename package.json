@@ -1,0 +1,27 @@
+{
+  "name": "hugelton-webtool-styles",
+  "version": "1.0.0",
+  "description": "CSS framework for web editor tools",
+  "main": "dist/hugelton-webtool-styles.css",
+  "scripts": {
+    "dev": "sass --watch src/main.scss:dist/hugelton-webtool-styles.css --style expanded --no-source-map",
+    "build": "sass src/main.scss:dist/hugelton-webtool-styles.css --style expanded --no-source-map && sass src/main.scss:dist/hugelton-webtool-styles.min.css --style compressed --no-source-map",
+    "watch": "npm run dev",
+    "preview": "python3 -m http.server 8080 --bind 127.0.0.1",
+    "serve": "npm run preview"
+  },
+  "keywords": [
+    "css",
+    "framework",
+    "web-editor",
+    "webtool"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "sass": "^1.69.5"
+  },
+  "files": [
+    "dist/"
+  ]
+}
