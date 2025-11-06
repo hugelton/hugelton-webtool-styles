@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Hugelton Webtool Styles - Preview</title>
+    <title>Hugelton Webtool Styles - Component Preview</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
@@ -12,32 +12,23 @@
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
 </head>
 <body>
-    <!-- Float Menu (Hügelton style) -->
+    <!-- Float Menu -->
     <div class="float-menu">
         <div class="menu-container">
-            <a href="index.html" class="menu-logo">
-                <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    width="20"
-                    height="20"
-                    class="logo-icon"
-                    viewBox="0 0 8.504 6.373"
-                >
+            <a href="#" class="menu-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="logo-icon" viewBox="0 0 8.504 6.373">
                     <g data-name="Print">
-                        <path
-                            fill="currentColor"
-                            d="M8.226 4.705c-.082 0-.261-.17-.396-.628-.263-.893-.695-1.026-.929-1.026s-.665.133-.929 1.026c-.135.458-.314.628-.369.633-.002-.002-.236-.153-.415-1.208-.19-1.121-.497-1.666-.936-1.666s-.746.545-.937 1.666c-.13.767-.289 1.056-.357 1.156-.086-.159-.271-.647-.417-2.056C2.303.309 1.933 0 1.602 0S.901.309.663 2.602C.498 4.197.283 4.612.217 4.705h-.218v.556h.278c.331 0 .701-.309.938-2.602.131-1.257.291-1.781.386-1.993.095.211.255.735.386 1.993.238 2.293.608 2.602.939 2.602.44 0 .746-.545.937-1.666.161-.949.366-1.167.368-1.203.041.035.247.254.408 1.203.191 1.121.497 1.666.937 1.666.234 0 .665-.133.929-1.026.135-.458.314-.628.396-.628s.261.17.396.628c.263.893.695 1.027.929 1.027h.278v-.556h-.278ZM0 5.817h8.504v.556H0z"
-                        ></path>
+                        <path fill="currentColor" d="M8.226 4.705c-.082 0-.261-.17-.396-.628-.263-.893-.695-1.026-.929-1.026s-.665.133-.929 1.026c-.135.458-.314.628-.369.633-.002-.002-.236-.153-.415-1.208-.19-1.121-.497-1.666-.936-1.666s-.746.545-.937 1.666c-.13.767-.289 1.056-.357 1.156-.086-.159-.271-.647-.417-2.056C2.303.309 1.933 0 1.602 0S.901.309.663 2.602C.498 4.197.283 4.612.217 4.705h-.218v.556h.278c.331 0 .701-.309.938-2.602.131-1.257.291-1.781.386-1.993.095.211.255.735.386 1.993.238 2.293.608 2.602.939 2.602.44 0 .746-.545.937-1.666.161-.949.366-1.167.368-1.203.041.035.247.254.408 1.203.191 1.121.497 1.666.937 1.666.234 0 .665-.133.929-1.026.135-.458.314-.628.396-.628s.261.17.396.628c.263.893.695 1.027.929 1.027h.278v-.556h-.278ZM0 5.817h8.504v.556H0z"></path>
                     </g>
                 </svg>
             </a>
-            
+
             <div class="menu-nav">
-                <a href="#about" class="menu-link">
-                    <ion-icon name="information-circle-outline"></ion-icon>
+                <a href="#components" class="menu-link">
+                    <ion-icon name="apps-outline"></ion-icon>
                 </a>
-                <a href="#docs" class="menu-link">
-                    <ion-icon name="document-text-outline"></ion-icon>
+                <a href="#design" class="menu-link">
+                    <ion-icon name="color-palette-outline"></ion-icon>
                 </a>
                 <label class="toggle">
                     <input type="checkbox" id="theme-toggle">
@@ -48,23 +39,307 @@
     </div>
 
     <div class="p-3">
-        <div class="text-center" style="margin-bottom: 3rem;">
+        <!-- Header -->
+        <div class="text-center" style="margin-bottom: 5rem;">
             <h1>Hugelton Webtool Styles</h1>
             <p style="font-size: 1.2rem; opacity: 0.8; margin-bottom: 2rem;">CSS Framework for Web MIDI & Serial API Applications</p>
             <div class="flex gap-1" style="justify-content: center;">
                 <span class="status status-info">v1.0.0</span>
-                <span class="status status-online">20 Components</span>
+                <span class="status status-online">20+ Components</span>
                 <span class="status status-neutral">~12KB</span>
             </div>
         </div>
-        
+
+        <!-- Buttons & Form Controls -->
+        <div class="panel" style="margin-bottom: 3rem;" id="components">
+            <h2>Buttons & Controls</h2>
+            <p>Interactive elements for user actions</p>
+
+            <div class="grid gap-3" style="margin-top: 2rem; grid-template-columns: 1fr 1fr;">
+                <div>
+                    <h3>Button Variants</h3>
+                    <div class="flex-column gap-2">
+                        <button class="button">Default Button</button>
+                        <button class="button success">Success Button</button>
+                        <button class="button warning">Warning Button</button>
+                        <button class="button danger">Danger Button</button>
+                        <button class="button info">Info Button</button>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Toggle & Checkbox</h3>
+                    <div class="flex-column gap-2">
+                        <div class="flex-between">
+                            <span>Dark Mode</span>
+                            <label class="toggle">
+                                <input type="checkbox">
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <div class="flex-between">
+                            <span>Auto-connect</span>
+                            <label class="toggle">
+                                <input type="checkbox" checked>
+                                <span class="toggle-slider"></span>
+                            </label>
+                        </div>
+                        <label class="checkbox">
+                            <input type="checkbox" checked>
+                            <span class="checkbox-mark"></span>
+                            Enable velocity sensitivity
+                        </label>
+                        <label class="checkbox">
+                            <input type="checkbox">
+                            <span class="checkbox-mark"></span>
+                            Send MIDI clock
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Elements -->
         <div class="panel" style="margin-bottom: 3rem;">
-            <h2>Square Grid Layouts</h2>
-            <p>Responsive grid system with perfect aspect ratios</p>
-            
+            <h2>Form Elements</h2>
+            <p>Input fields and selection controls</p>
+
+            <div class="grid gap-3" style="margin-top: 2rem; grid-template-columns: 1fr 1fr;">
+                <div>
+                    <h3>Text Input & Dropdown</h3>
+                    <div class="flex-column gap-2">
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem;">Device Name</label>
+                            <input type="text" class="textfield" placeholder="Enter device name" value="Roland TR-808">
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem;">MIDI Device</label>
+                            <div class="dropdown">
+                                <button class="dropdown-button" id="midi-select">USB MIDI Interface</button>
+                                <div class="dropdown-menu">
+                                    <div class="dropdown-item">Built-in Audio</div>
+                                    <div class="dropdown-item selected">USB MIDI Interface</div>
+                                    <div class="dropdown-item">Bluetooth MIDI</div>
+                                    <div class="dropdown-item">Virtual MIDI</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Radio Buttons & Fader</h3>
+                    <div class="flex-column gap-2">
+                        <div>
+                            <h4>MIDI Channel</h4>
+                            <div class="flex gap-3">
+                                <label class="radio">
+                                    <input type="radio" name="channel" value="1" checked>
+                                    <span class="radio-mark"></span>
+                                    Channel 1
+                                </label>
+                                <label class="radio">
+                                    <input type="radio" name="channel" value="2">
+                                    <span class="radio-mark"></span>
+                                    Channel 2
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <label style="display: block; margin-bottom: 0.5rem;">Volume</label>
+                            <input type="range" class="fader" min="0" max="100" value="75">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Lists & Tables -->
+        <div class="panel" style="margin-bottom: 3rem;">
+            <h2>Lists & Tables</h2>
+            <p>Structured data display with borders</p>
+
+            <div class="grid gap-3" style="margin-top: 2rem; grid-template-columns: 1fr 1fr;">
+                <div>
+                    <h3>Ordered List</h3>
+                    <ul class="list list-ordered">
+                        <li>Initialize MIDI interface</li>
+                        <li>Connect to device</li>
+                        <li>Configure channels</li>
+                        <li>Start audio engine</li>
+                    </ul>
+                </div>
+
+                <div>
+                    <h3>Unordered List</h3>
+                    <ul class="list list-unordered">
+                        <li>Web MIDI API support</li>
+                        <li>Dark mode compatible</li>
+                        <li>Responsive layout</li>
+                        <li>Fibonacci spacing</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div style="margin-top: 2rem;">
+                <h3>Device Table</h3>
+                <table class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Device Name</th>
+                            <th>Type</th>
+                            <th>Channel</th>
+                            <th>Status</th>
+                            <th>Latency</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Roland TR-808</td>
+                            <td>Drum Machine</td>
+                            <td>10</td>
+                            <td><span class="status status-online">Connected</span></td>
+                            <td>3ms</td>
+                        </tr>
+                        <tr>
+                            <td>Moog Sub 37</td>
+                            <td>Synthesizer</td>
+                            <td>1</td>
+                            <td><span class="status status-online">Connected</span></td>
+                            <td>5ms</td>
+                        </tr>
+                        <tr>
+                            <td>USB MIDI Interface</td>
+                            <td>Interface</td>
+                            <td>All</td>
+                            <td><span class="status status-warning">Limited</span></td>
+                            <td>12ms</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Status & Feedback -->
+        <div class="panel" style="margin-bottom: 3rem;">
+            <h2>Status & Feedback</h2>
+            <p>Visual indicators and progress elements</p>
+
+            <div class="grid gap-3" style="margin-top: 2rem; grid-template-columns: 1fr 1fr;">
+                <div>
+                    <h3>Status Labels</h3>
+                    <div class="flex-column gap-2">
+                        <div class="flex gap-1" style="flex-wrap: wrap;">
+                            <span class="status status-online">Online</span>
+                            <span class="status status-offline">Offline</span>
+                            <span class="status status-warning">Warning</span>
+                            <span class="status status-info">Info</span>
+                            <span class="status status-neutral">Neutral</span>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 1rem;">Badges</h3>
+                    <div class="flex gap-1" style="flex-wrap: wrap;">
+                        <span class="badge">Default</span>
+                        <span class="badge badge-primary">Primary</span>
+                        <span class="badge badge-success">Success</span>
+                        <span class="badge badge-warning">Warning</span>
+                        <span class="badge badge-danger">Danger</span>
+                        <span class="badge badge-info">Info</span>
+                    </div>
+
+                    <h3 style="margin-top: 1rem;">Chips</h3>
+                    <div class="flex-column gap-1">
+                        <div class="chip chip-removable">
+                            Roland TR-808
+                            <button class="chip-remove">×</button>
+                        </div>
+                        <div class="chip chip-removable">
+                            Moog Synthesizer
+                            <button class="chip-remove">×</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <h3>Progress Indicators</h3>
+                    <div class="flex-column gap-2">
+                        <div>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 45%;"></div>
+                            </div>
+                            <div class="progress-text">Loading... 45%</div>
+                        </div>
+                        <div>
+                            <div class="progress">
+                                <div class="progress-bar progress-success" style="width: 75%;"></div>
+                            </div>
+                            <div class="progress-text">Syncing... 75%</div>
+                        </div>
+                        <div>
+                            <div class="progress">
+                                <div class="progress-bar progress-warning" style="width: 90%;"></div>
+                            </div>
+                            <div class="progress-text">Processing... 90%</div>
+                        </div>
+                    </div>
+
+                    <h3 style="margin-top: 1rem;">Loading Animations</h3>
+                    <div class="flex-column gap-2">
+                        <div class="flex gap-2">
+                            <div class="spinner spinner-sm"></div>
+                            <div class="spinner"></div>
+                            <div class="spinner spinner-lg"></div>
+                        </div>
+                        <div class="loading">
+                            <div class="dots-loading">
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                                <div class="dot"></div>
+                            </div>
+                            <span class="loading-text">Scanning devices...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alerts -->
+        <div style="margin-bottom: 3rem;">
+            <h2 style="margin-bottom: 1rem;">Alerts & Notifications</h2>
+            <div class="alert alert-info">
+                <button class="alert-close">×</button>
+                <div class="alert-title">Web MIDI API Available</div>
+                Your browser supports Web MIDI API. Connect your MIDI devices to get started.
+            </div>
+
+            <div class="alert alert-success">
+                <button class="alert-close">×</button>
+                <div class="alert-title">Device Connected</div>
+                Successfully connected to Roland TR-808 on MIDI channel 10.
+            </div>
+
+            <div class="alert alert-warning">
+                <button class="alert-close">×</button>
+                <div class="alert-title">Browser Compatibility</div>
+                Some features may require enabling experimental web platform features in Chrome.
+            </div>
+
+            <div class="alert alert-danger">
+                <button class="alert-close">×</button>
+                <div class="alert-title">Connection Error</div>
+                Failed to connect to MIDI device. Please check your connection and try again.
+            </div>
+        </div>
+
+        <!-- Grid Layouts -->
+        <div class="panel" style="margin-bottom: 3rem;">
+            <h2>Grid Layouts</h2>
+            <p>Square grids and Fibonacci ratio layouts</p>
+
             <div class="grid grid-fib-5x3 gap-2" style="margin-top: 2rem;">
                 <div>
-                    <h3 style="margin-bottom: 1rem;">Control Panel Grid</h3>
+                    <h3 style="margin-bottom: 1rem;">3×3 Control Grid</h3>
                     <div class="grid grid-3x3 gap-1">
                         <div class="panel grid-item-square flex-center" style="background: var(--color-green); color: white; margin: 0;">EQ</div>
                         <div class="panel grid-item-square flex-center" style="background: var(--color-blue); color: white; margin: 0;">FX</div>
@@ -77,7 +352,7 @@
                         <div class="panel grid-item-square flex-center" style="margin: 0;">9</div>
                     </div>
                 </div>
-                
+
                 <div>
                     <h3 style="margin-bottom: 1rem;">System Status</h3>
                     <div class="flex-column gap-2">
@@ -97,215 +372,36 @@
                             <span>VST Scanner</span>
                             <span class="status status-offline">Idle</span>
                         </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        
-        <div class="panel" style="margin-bottom: 3rem;">
-            <h2>Advanced Components</h2>
-            <p>Additional UI elements for complex interactions</p>
-            
-            <div class="grid gap-3" style="margin-top: 2rem; grid-template-columns: 1fr 1fr; align-items: start;">
-                <div>
-                    <h3>Form Elements</h3>
-                    
-                    <div class="p-1">
-                        <label style="display: block; margin-bottom: 0.5rem;">MIDI Output Device</label>
-                        <div class="dropdown">
-                            <button class="dropdown-button" id="midi-select">Select MIDI Device...</button>
-                            <div class="dropdown-menu">
-                                <div class="dropdown-item">Built-in Audio</div>
-                                <div class="dropdown-item selected">USB MIDI Interface</div>
-                                <div class="dropdown-item">Bluetooth MIDI</div>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="p-1">
-                        <h4>Connection Options</h4>
-                        <div class="flex-column gap-1">
-                            <label class="checkbox">
-                                <input type="checkbox" checked>
-                                <span class="checkbox-mark"></span>
-                                Auto-connect on startup
-                            </label>
-                            <label class="checkbox">
-                                <input type="checkbox">
-                                <span class="checkbox-mark"></span>
-                                Send MIDI clock
-                            </label>
-                        </div>
-                    </div>
-                    
-                    <div class="p-1">
-                        <h4>MIDI Channel</h4>
-                        <div class="flex gap-2">
-                            <label class="radio">
-                                <input type="radio" name="channel" value="1" checked>
-                                <span class="radio-mark"></span>
-                                Channel 1
-                            </label>
-                            <label class="radio">
-                                <input type="radio" name="channel" value="2">
-                                <span class="radio-mark"></span>
-                                Channel 2
-                            </label>
-                        </div>
-                    </div>
-                </div>
-                
-                <div>
-                    <h3>Status & Progress</h3>
-                    
-                    <div class="p-1">
-                        <h4>Device Status</h4>
-                        <div class="flex gap-1" style="flex-wrap: wrap;">
-                            <span class="badge badge-success">Connected</span>
+                        <div class="flex-between">
+                            <span>Sample Rate</span>
                             <span class="badge badge-info">48kHz</span>
-                            <span class="badge badge-warning">Latency: 5ms</span>
                         </div>
-                    </div>
-                    
-                    <div class="p-1">
-                        <h4>Active Devices</h4>
-                        <div class="flex-column gap-1">
-                            <div class="chip chip-removable">
-                                Roland TR-808
-                                <button class="chip-remove">×</button>
-                            </div>
-                            <div class="chip chip-removable">
-                                Moog Synthesizer
-                                <button class="chip-remove">×</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="p-1">
-                        <h4>Sync Progress</h4>
-                        <div class="progress">
-                            <div class="progress-bar progress-info" style="width: 75%;"></div>
-                        </div>
-                        <div class="progress-text">Syncing patterns... 75%</div>
-                    </div>
-                    
-                    <div class="p-1">
-                        <div class="loading">
-                            <div class="dots-loading">
-                                <div class="dot"></div>
-                                <div class="dot"></div>
-                                <div class="dot"></div>
-                            </div>
-                            <span class="loading-text">Scanning devices...</span>
+                        <div class="flex-between">
+                            <span>Buffer Size</span>
+                            <span class="badge">512</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
-        
-        <div class="panel" style="margin-bottom: 3rem;">
-            <h2>MIDI Device Table</h2>
-            <table class="table table-striped">
-                <thead>
-                    <tr>
-                        <th>Device Name</th>
-                        <th>Type</th>
-                        <th>Channel</th>
-                        <th>Status</th>
-                        <th class="tooltip">
-                            Latency
-                            <span class="tooltip-text">Average round-trip delay</span>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td>Roland TR-808</td>
-                        <td>Drum Machine</td>
-                        <td>10</td>
-                        <td><span class="status status-online">Connected</span></td>
-                        <td>3ms</td>
-                    </tr>
-                    <tr>
-                        <td>Moog Sub 37</td>
-                        <td>Synthesizer</td>
-                        <td>1</td>
-                        <td><span class="status status-online">Connected</span></td>
-                        <td>5ms</td>
-                    </tr>
-                    <tr>
-                        <td>USB MIDI Interface</td>
-                        <td>Interface</td>
-                        <td>All</td>
-                        <td><span class="status status-warning">Limited</span></td>
-                        <td>12ms</td>
-                    </tr>
-                </tbody>
-            </table>
-        </div>
-        
-        <div class="alert alert-info">
-            <button class="alert-close">×</button>
-            <div class="alert-title">Web MIDI API Available</div>
-            Your browser supports Web MIDI API. Connect your MIDI devices to get started.
-        </div>
-        
-        <div class="alert alert-warning">
-            <button class="alert-close">×</button>
-            <div class="alert-title">Browser Compatibility</div>
-            Some features may require enabling experimental web platform features in Chrome.
-        </div>
-        
+
         <!-- Modal Demo -->
-        <div class="p-3">
-            <button class="button info" id="open-modal">Open MIDI Settings</button>
+        <div class="panel" style="margin-bottom: 3rem;">
+            <h2>Modal Dialog</h2>
+            <p>Click the button to open a modal dialog</p>
+            <button class="button info" id="open-modal" style="margin-top: 1rem;">Open MIDI Settings</button>
         </div>
-        
-        <div class="modal" id="midi-modal">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h2>MIDI Device Settings</h2>
-                    <button class="modal-close" id="close-modal">×</button>
-                </div>
-                <div class="modal-body">
-                    <p>Configure your MIDI devices and connection settings.</p>
-                    
-                    <div class="p-1">
-                        <label style="display: block; margin-bottom: 0.5rem;">Device Name</label>
-                        <input type="text" class="textfield" value="Roland TR-808" placeholder="Enter device name">
-                    </div>
-                    
-                    <div class="p-1">
-                        <label style="display: block; margin-bottom: 0.5rem;">MIDI Channel</label>
-                        <div class="dropdown">
-                            <button class="dropdown-button">Channel 10 (Drums)</button>
-                        </div>
-                    </div>
-                    
-                    <div class="p-1">
-                        <label class="checkbox">
-                            <input type="checkbox" checked>
-                            <span class="checkbox-mark"></span>
-                            Enable velocity sensitivity
-                        </label>
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="button">Cancel</button>
-                    <button class="button success">Save Settings</button>
-                </div>
-            </div>
-        </div>
-        
-        <div class="grid grid-2x2 gap-3">
+
+        <!-- Design System -->
+        <div class="grid grid-2x2 gap-3" id="design">
             <div class="panel">
                 <h2>Typography</h2>
-                <h1 style="margin: 1rem 0;">Clash Display</h1>
-                <h2 style="margin: 0.5rem 0;">Inter Tight Medium</h2>
-                <h3 style="margin: 0.5rem 0;">Inter Tight Regular</h3>
-                <p style="opacity: 0.8;">Body text optimized for readability at 18px base size with 1.6 line height.</p>
+                <h1 style="margin: 1rem 0;">Clash Display (H1)</h1>
+                <h2 style="margin: 0.5rem 0;">Inter Tight Heading</h2>
+                <h3 style="margin: 0.5rem 0;">Regular Subheading</h3>
+                <p style="opacity: 0.8;">Body text optimized for readability at 18px base size with 1.6 line height for comfortable reading in web applications.</p>
             </div>
-            
+
             <div class="panel">
                 <h2>Color Palette</h2>
                 <div class="flex-column gap-2">
@@ -343,17 +439,17 @@
                     </div>
                 </div>
             </div>
-            
+
             <div class="panel">
                 <h2>Fibonacci Spacing</h2>
-                <p style="margin-bottom: 1rem;">Mathematical spacing system</p>
+                <p style="margin-bottom: 1rem;">Mathematical spacing system (0, 1, 1, 2, 3, 5, 8, 13)</p>
                 <div class="flex-column gap-1">
-                    <div style="background: var(--toggle-bg); padding: var(--fib-1); border-radius: 0.25rem; font-size: 0.8rem;">1rem</div>
-                    <div style="background: var(--toggle-bg); padding: var(--fib-3); border-radius: 0.25rem; font-size: 0.8rem;">2rem</div>
-                    <div style="background: var(--toggle-bg); padding: var(--fib-4); border-radius: 0.25rem; font-size: 0.8rem;">3rem</div>
+                    <div style="background: var(--toggle-bg); padding: var(--fib-1); border-radius: 0.25rem; font-size: 0.8rem;">var(--fib-1): 1rem</div>
+                    <div style="background: var(--toggle-bg); padding: var(--fib-3); border-radius: 0.25rem; font-size: 0.8rem;">var(--fib-3): 2rem</div>
+                    <div style="background: var(--toggle-bg); padding: var(--fib-4); border-radius: 0.25rem; font-size: 0.8rem;">var(--fib-4): 3rem</div>
                 </div>
             </div>
-            
+
             <div class="panel">
                 <h2>Framework Info</h2>
                 <div class="flex-column gap-2">
@@ -367,7 +463,7 @@
                     </div>
                     <div class="flex-between">
                         <span>Components</span>
-                        <span style="font-weight: 600;">20</span>
+                        <span style="font-weight: 600;">20+</span>
                     </div>
                     <div class="flex-between">
                         <span>Grid Types</span>
@@ -378,18 +474,54 @@
         </div>
     </div>
 
+    <!-- Modal -->
+    <div class="modal" id="midi-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>MIDI Device Settings</h2>
+                <button class="modal-close" id="close-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <p>Configure your MIDI devices and connection settings.</p>
+
+                <div class="p-1">
+                    <label style="display: block; margin-bottom: 0.5rem;">Device Name</label>
+                    <input type="text" class="textfield" value="Roland TR-808" placeholder="Enter device name">
+                </div>
+
+                <div class="p-1">
+                    <label style="display: block; margin-bottom: 0.5rem;">MIDI Channel</label>
+                    <div class="dropdown">
+                        <button class="dropdown-button">Channel 10 (Drums)</button>
+                    </div>
+                </div>
+
+                <div class="p-1">
+                    <label class="checkbox">
+                        <input type="checkbox" checked>
+                        <span class="checkbox-mark"></span>
+                        Enable velocity sensitivity
+                    </label>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="button">Cancel</button>
+                <button class="button success">Save Settings</button>
+            </div>
+        </div>
+    </div>
+
     <script>
-        // Theme toggle functionality
+        // Theme toggle
         const themeToggle = document.getElementById('theme-toggle');
         const body = document.body;
-        
-        // Check for saved theme preference or default to light mode
+
         const savedTheme = localStorage.getItem('theme') || 'light';
         if (savedTheme === 'dark') {
             body.setAttribute('data-theme', 'dark');
             themeToggle.checked = true;
         }
-        
+
         themeToggle.addEventListener('change', () => {
             if (themeToggle.checked) {
                 body.setAttribute('data-theme', 'dark');
@@ -399,93 +531,63 @@
                 localStorage.setItem('theme', 'light');
             }
         });
-        
-        // Audio control synchronization
-        const masterVolume = document.getElementById('master-volume');
-        const masterInput = document.getElementById('master-input');
-        const gainControl = document.getElementById('gain-control');
-        const gainInput = document.getElementById('gain-input');
-        
-        // Master volume
-        if (masterVolume && masterInput) {
-            masterVolume.addEventListener('input', () => {
-                masterInput.value = masterVolume.value;
-            });
-            masterInput.addEventListener('input', () => {
-                masterVolume.value = masterInput.value;
-            });
-        }
-        
-        // Gain control
-        if (gainControl && gainInput) {
-            gainControl.addEventListener('input', () => {
-                gainInput.value = gainControl.value;
-            });
-            gainInput.addEventListener('input', () => {
-                gainControl.value = gainInput.value;
-            });
-        }
-        
-        // Modal functionality
+
+        // Modal
         const openModal = document.getElementById('open-modal');
         const closeModal = document.getElementById('close-modal');
         const modal = document.getElementById('midi-modal');
-        
+
         if (openModal && closeModal && modal) {
             openModal.addEventListener('click', () => {
                 modal.classList.add('modal-open');
             });
-            
+
             closeModal.addEventListener('click', () => {
                 modal.classList.remove('modal-open');
             });
-            
+
             modal.addEventListener('click', (e) => {
                 if (e.target === modal) {
                     modal.classList.remove('modal-open');
                 }
             });
         }
-        
-        // Dropdown functionality
+
+        // Dropdown
         const midiSelect = document.getElementById('midi-select');
         const dropdown = midiSelect?.parentElement;
-        
+
         if (midiSelect && dropdown) {
             midiSelect.addEventListener('click', () => {
                 dropdown.classList.toggle('dropdown-open');
             });
-            
-            // Close dropdown when clicking outside
+
             document.addEventListener('click', (e) => {
                 if (!dropdown.contains(e.target)) {
                     dropdown.classList.remove('dropdown-open');
                 }
             });
-            
-            // Handle item selection
+
             const dropdownItems = dropdown.querySelectorAll('.dropdown-item');
             dropdownItems.forEach(item => {
                 item.addEventListener('click', () => {
                     midiSelect.textContent = item.textContent;
                     dropdown.classList.remove('dropdown-open');
-                    
-                    // Update selected state
                     dropdownItems.forEach(i => i.classList.remove('selected'));
                     item.classList.add('selected');
                 });
             });
         }
-        
-        // Alert close functionality
+
+        // Alert close
         const alertCloses = document.querySelectorAll('.alert-close');
         alertCloses.forEach(btn => {
             btn.addEventListener('click', () => {
                 btn.parentElement.style.display = 'none';
             });
         });
-        
-        // Chip remove functionality
+
+        // Chip remove
         const chipRemoves = document.querySelectorAll('.chip-remove');
         chipRemoves.forEach(btn => {
             btn.addEventListener('click', () => {

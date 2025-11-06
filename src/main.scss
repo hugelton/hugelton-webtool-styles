@@ -1250,6 +1250,75 @@ h2, h3, h4, h5, h6 {
   }
 }
 
+// List component
+.list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  background: var(--panel-bg);
+  border-radius: 0.5rem;
+  overflow: hidden;
+
+  li {
+    padding: 0.75rem 1rem;
+    color: var(--panel-text);
+    border-bottom: 1px solid var(--toggle-bg);
+    transition: background-color 0.2s ease;
+
+    &:last-child {
+      border-bottom: none;
+    }
+
+    &:hover {
+      background: var(--toggle-bg);
+    }
+  }
+
+  // Ordered list with numbers
+  &.list-ordered {
+    counter-reset: list-counter;
+
+    li {
+      counter-increment: list-counter;
+      position: relative;
+      padding-left: 2.5rem;
+
+      &:before {
+        content: counter(list-counter);
+        position: absolute;
+        left: 1rem;
+        font-weight: 600;
+        color: var(--body-text);
+        opacity: 0.6;
+      }
+    }
+  }
+
+  // Unordered list with bullets
+  &.list-unordered {
+    li {
+      position: relative;
+      padding-left: 2rem;
+
+      &:before {
+        content: "•";
+        position: absolute;
+        left: 1rem;
+        font-weight: 600;
+        color: var(--body-text);
+        opacity: 0.6;
+      }
+    }
+  }
+
+  // Compact variant
+  &.list-compact {
+    li {
+      padding: 0.5rem 1rem;
+    }
+  }
+}
+
 // Theme toggle utility
 .theme-toggle {
   position: fixed;
