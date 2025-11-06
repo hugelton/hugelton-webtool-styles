@@ -1,0 +1,736 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hügelton Webtool Styles - Documentation</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="dist/hugelton-webtool-styles.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <style>
+        .docs-sidebar {
+            position: fixed;
+            left: 0;
+            top: 5rem;
+            width: 250px;
+            height: calc(100vh - 5rem);
+            background: var(--panel-bg);
+            padding: 2rem 1rem;
+            overflow-y: auto;
+            border-right: 1px solid var(--toggle-bg);
+        }
+
+        .docs-content {
+            margin-left: 250px;
+            padding: 2rem 3rem;
+            max-width: 1200px;
+        }
+
+        .docs-nav-link {
+            display: block;
+            padding: 0.5rem 0.75rem;
+            color: var(--body-text);
+            text-decoration: none;
+            border-radius: 0.5rem;
+            margin-bottom: 0.25rem;
+            transition: background-color 0.2s;
+        }
+
+        .docs-nav-link:hover {
+            background: var(--toggle-bg);
+        }
+
+        .docs-nav-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .docs-nav-title {
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            opacity: 0.7;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .code-block {
+            background: var(--textfield-bg);
+            border: 1px solid var(--toggle-bg);
+            border-radius: 0.5rem;
+            padding: 1rem;
+            margin: 1rem 0;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.875rem;
+            line-height: 1.5;
+        }
+
+        .component-demo {
+            background: var(--panel-bg);
+            border-radius: 1rem;
+            padding: 2rem;
+            margin: 1.5rem 0;
+        }
+
+        .demo-label {
+            font-size: 0.875rem;
+            opacity: 0.7;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+        }
+
+        @media (max-width: 768px) {
+            .docs-sidebar {
+                display: none;
+            }
+            .docs-content {
+                margin-left: 0;
+                padding: 1rem;
+            }
+        }
+
+        .color-swatch {
+            width: 100%;
+            height: 4rem;
+            border-radius: 0.5rem;
+            display: flex;
+            align-items: flex-end;
+            padding: 0.75rem;
+            color: white;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+
+        .install-tabs {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .install-tab {
+            padding: 0.5rem 1rem;
+            background: var(--toggle-bg);
+            border: none;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            font-family: inherit;
+            color: var(--body-text);
+            transition: background-color 0.2s;
+        }
+
+        .install-tab.active {
+            background: var(--button-bg);
+            color: var(--button-text);
+        }
+
+        .install-content {
+            display: none;
+        }
+
+        .install-content.active {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <!-- Float Menu -->
+    <div class="float-menu">
+        <div class="menu-container">
+            <a href="index.html" class="menu-logo">
+                <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" class="logo-icon" viewBox="0 0 8.504 6.373">
+                    <g data-name="Print">
+                        <path fill="currentColor" d="M8.226 4.705c-.082 0-.261-.17-.396-.628-.263-.893-.695-1.026-.929-1.026s-.665.133-.929 1.026c-.135.458-.314.628-.369.633-.002-.002-.236-.153-.415-1.208-.19-1.121-.497-1.666-.936-1.666s-.746.545-.937 1.666c-.13.767-.289 1.056-.357 1.156-.086-.159-.271-.647-.417-2.056C2.303.309 1.933 0 1.602 0S.901.309.663 2.602C.498 4.197.283 4.612.217 4.705h-.218v.556h.278c.331 0 .701-.309.938-2.602.131-1.257.291-1.781.386-1.993.095.211.255.735.386 1.993.238 2.293.608 2.602.939 2.602.44 0 .746-.545.937-1.666.161-.949.366-1.167.368-1.203.041.035.247.254.408 1.203.191 1.121.497 1.666.937 1.666.234 0 .665-.133.929-1.026.135-.458.314-.628.396-.628s.261.17.396.628c.263.893.695 1.027.929 1.027h.278v-.556h-.278ZM0 5.817h8.504v.556H0z"></path>
+                    </g>
+                </svg>
+            </a>
+
+            <div class="menu-nav">
+                <a href="preview.html" class="menu-link">
+                    <ion-icon name="eye-outline"></ion-icon>
+                </a>
+                <a href="docs.html" class="menu-link">
+                    <ion-icon name="book-outline"></ion-icon>
+                </a>
+                <label class="toggle">
+                    <input type="checkbox" id="theme-toggle">
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sidebar Navigation -->
+    <nav class="docs-sidebar">
+        <div class="docs-nav-section">
+            <div class="docs-nav-title">Getting Started</div>
+            <a href="#installation" class="docs-nav-link">Installation</a>
+            <a href="#quick-start" class="docs-nav-link">Quick Start</a>
+        </div>
+
+        <div class="docs-nav-section">
+            <div class="docs-nav-title">Design System</div>
+            <a href="#colors" class="docs-nav-link">Colors</a>
+            <a href="#spacing" class="docs-nav-link">Spacing</a>
+            <a href="#typography" class="docs-nav-link">Typography</a>
+            <a href="#theme" class="docs-nav-link">Dark Mode</a>
+        </div>
+
+        <div class="docs-nav-section">
+            <div class="docs-nav-title">Components</div>
+            <a href="#buttons" class="docs-nav-link">Buttons</a>
+            <a href="#forms" class="docs-nav-link">Forms</a>
+            <a href="#layout" class="docs-nav-link">Layout</a>
+            <a href="#status" class="docs-nav-link">Status & Feedback</a>
+            <a href="#modal" class="docs-nav-link">Modal</a>
+            <a href="#tables" class="docs-nav-link">Tables</a>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="docs-content">
+        <!-- Hero Section -->
+        <section style="margin-bottom: 4rem;">
+            <h1 style="margin-bottom: 1rem;">Hügelton Webtool Styles</h1>
+            <p style="font-size: 1.25rem; margin-bottom: 2rem; opacity: 0.8;">
+                A lightweight CSS framework for web editor tools with 20+ components, dark mode, and Fibonacci spacing.
+            </p>
+            <div class="flex gap-2" style="flex-wrap: wrap;">
+                <span class="badge badge-info">v1.0.0</span>
+                <span class="badge badge-success">~12KB</span>
+                <span class="badge">20+ Components</span>
+                <span class="badge">MIT License</span>
+            </div>
+        </section>
+
+        <!-- Installation -->
+        <section id="installation" style="margin-bottom: 4rem;">
+            <h2 style="margin-bottom: 1.5rem;">Installation</h2>
+
+            <div class="install-tabs">
+                <button class="install-tab active" data-tab="cdn">CDN</button>
+                <button class="install-tab" data-tab="npm">npm</button>
+                <button class="install-tab" data-tab="download">Download</button>
+            </div>
+
+            <div class="install-content active" data-content="cdn">
+                <p style="margin-bottom: 1rem;">The fastest way to get started. Just add this line to your HTML:</p>
+                <div class="code-block">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hugelton/hugelton-webtool-styles@main/dist/hugelton-webtool-styles.min.css"&gt;</div>
+                <p style="opacity: 0.7; font-size: 0.875rem;">Or use unpkg:</p>
+                <div class="code-block">&lt;link rel="stylesheet" href="https://unpkg.com/hugelton-webtool-styles@latest/dist/hugelton-webtool-styles.min.css"&gt;</div>
+            </div>
+
+            <div class="install-content" data-content="npm">
+                <p style="margin-bottom: 1rem;">Install via npm:</p>
+                <div class="code-block">npm install hugelton-webtool-styles</div>
+                <p style="margin-top: 1rem; margin-bottom: 1rem;">Then import in your HTML:</p>
+                <div class="code-block">&lt;link rel="stylesheet" href="node_modules/hugelton-webtool-styles/dist/hugelton-webtool-styles.min.css"&gt;</div>
+            </div>
+
+            <div class="install-content" data-content="download">
+                <p style="margin-bottom: 1rem;">Download the CSS file directly:</p>
+                <div class="flex gap-2" style="margin-bottom: 1rem;">
+                    <a href="dist/hugelton-webtool-styles.min.css" class="button info" download>Download Minified</a>
+                    <a href="dist/hugelton-webtool-styles.css" class="button" download>Download Expanded</a>
+                </div>
+                <p style="opacity: 0.7; font-size: 0.875rem;">Then include it in your HTML:</p>
+                <div class="code-block">&lt;link rel="stylesheet" href="path/to/hugelton-webtool-styles.min.css"&gt;</div>
+            </div>
+        </section>
+
+        <!-- Quick Start -->
+        <section id="quick-start" style="margin-bottom: 4rem;">
+            <h2 style="margin-bottom: 1.5rem;">Quick Start</h2>
+            <p style="margin-bottom: 1rem;">Here's a minimal HTML template to get started:</p>
+            <div class="code-block">&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+&lt;head&gt;
+    &lt;meta charset="UTF-8"&gt;
+    &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+    &lt;title&gt;My Web MIDI App&lt;/title&gt;
+    &lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/hugelton/hugelton-webtool-styles@main/dist/hugelton-webtool-styles.min.css"&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class="p-3"&gt;
+        &lt;h1&gt;My MIDI Controller&lt;/h1&gt;
+        &lt;div class="panel"&gt;
+            &lt;button class="button success"&gt;Connect Device&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;</div>
+        </section>
+
+        <!-- Colors -->
+        <section id="colors" style="margin-bottom: 4rem;">
+            <h2 style="margin-bottom: 1.5rem;">Color Palette</h2>
+            <p style="margin-bottom: 2rem;">Four main colors with intentionally swapped names. Colors automatically invert in dark mode.</p>
+            <div class="grid grid-2x2 gap-2">
+                <div>
+                    <div class="color-swatch" style="background: #036eb7;">#036eb7</div>
+                    <div style="margin-top: 0.5rem; font-weight: 600;">--color-green</div>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background: #009844;">#009844</div>
+                    <div style="margin-top: 0.5rem; font-weight: 600;">--color-yellow</div>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background: #f29600;">#f29600</div>
+                    <div style="margin-top: 0.5rem; font-weight: 600;">--color-red</div>
+                </div>
+                <div>
+                    <div class="color-swatch" style="background: #c30d23;">#c30d23</div>
+                    <div style="margin-top: 0.5rem; font-weight: 600;">--color-blue</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Spacing -->
+        <section id="spacing" style="margin-bottom: 4rem;">
+            <h2 style="margin-bottom: 1.5rem;">Fibonacci Spacing System</h2>
+            <p style="margin-bottom: 2rem;">Based on the Fibonacci sequence: 0, 1, 1, 2, 3, 5, 8, 13 (in rem units)</p>
+
+            <div class="panel">
+                <h3 style="margin-bottom: 1rem;">CSS Variables</h3>
+                <div class="code-block">--fib-0: 0rem    /* 0px */
+--fib-1: 1rem    /* 18px */
+--fib-2: 1rem    /* 18px */
+--fib-3: 2rem    /* 36px */
+--fib-4: 3rem    /* 54px */
+--fib-5: 5rem    /* 90px */
+--fib-6: 8rem    /* 144px */
+--fib-7: 13rem   /* 234px */</div>
+            </div>
+
+            <div class="panel" style="margin-top: 2rem;">
+                <h3 style="margin-bottom: 1rem;">Utility Classes</h3>
+                <div class="code-block">&lt;!-- Margin --&gt;
+&lt;div class="m-1"&gt;1rem margin&lt;/div&gt;
+&lt;div class="m-3"&gt;2rem margin&lt;/div&gt;
+
+&lt;!-- Padding --&gt;
+&lt;div class="p-2"&gt;1rem padding&lt;/div&gt;
+&lt;div class="p-4"&gt;3rem padding&lt;/div&gt;
+
+&lt;!-- Gap (for flex/grid) --&gt;
+&lt;div class="flex gap-1"&gt;18px gap&lt;/div&gt;
+&lt;div class="grid gap-3"&gt;36px gap&lt;/div&gt;</div>
+            </div>
+        </section>
+
+        <!-- Typography -->
+        <section id="typography" style="margin-bottom: 4rem;">
+            <h2 style="margin-bottom: 1.5rem;">Typography</h2>
+            <div class="panel">
+                <h1 style="margin: 1rem 0;">Clash Display Heading (H1)</h1>
+                <h2 style="margin: 1rem 0;">Inter Tight Heading (H2)</h2>
+                <h3 style="margin: 1rem 0;">Inter Tight Subheading (H3)</h3>
+                <p style="margin: 1rem 0;">Body text uses Inter Tight with 18px base size and 1.6 line height for optimal readability in web applications. The font family is loaded from Google Fonts CDN.</p>
+            </div>
+            <div class="code-block" style="margin-top: 1rem;">/* Typography Settings */
+Base Size: 18px (1rem)
+Headings: Inter Tight (h2-h6), Clash Display (h1)
+Body: Inter Tight, line-height 1.6</div>
+        </section>
+
+        <!-- Theme -->
+        <section id="theme" style="margin-bottom: 4rem;">
+            <h2 style="margin-bottom: 1.5rem;">Dark Mode Theme</h2>
+            <p style="margin-bottom: 1rem;">Toggle dark mode using the <code>data-theme</code> attribute:</p>
+            <div class="code-block">// Enable dark mode
+document.body.setAttribute('data-theme', 'dark');
+
+// Disable dark mode
+document.body.removeAttribute('data-theme');
+
+// Save preference
+localStorage.setItem('theme', 'dark');</div>
+
+            <div class="component-demo" style="margin-top: 2rem;">
+                <div class="demo-label">Try it now:</div>
+                <button class="button info" id="demo-theme-toggle">Toggle Theme</button>
+            </div>
+        </section>
+
+        <!-- Buttons -->
+        <section id="buttons" style="margin-bottom: 4rem;">
+            <h2 style="margin-bottom: 1.5rem;">Buttons</h2>
+
+            <div class="component-demo">
+                <div class="demo-label">Button Variants</div>
+                <div class="flex gap-2" style="flex-wrap: wrap;">
+                    <button class="button">Default</button>
+                    <button class="button success">Success</button>
+                    <button class="button warning">Warning</button>
+                    <button class="button danger">Danger</button>
+                    <button class="button info">Info</button>
+                </div>
+            </div>
+
+            <div class="code-block">&lt;button class="button"&gt;Default&lt;/button&gt;
+&lt;button class="button success"&gt;Success&lt;/button&gt;
+&lt;button class="button warning"&gt;Warning&lt;/button&gt;
+&lt;button class="button danger"&gt;Danger&lt;/button&gt;
+&lt;button class="button info"&gt;Info&lt;/button&gt;</div>
+        </section>
+
+        <!-- Forms -->
+        <section id="forms" style="margin-bottom: 4rem;">
+            <h2 style="margin-bottom: 1.5rem;">Form Elements</h2>
+
+            <div class="component-demo">
+                <h3 style="margin-bottom: 1rem;">Text Input</h3>
+                <input type="text" class="textfield" placeholder="Enter device name" value="Hügelton K102E">
+            </div>
+
+            <div class="code-block">&lt;input type="text" class="textfield" placeholder="Device name"&gt;</div>
+
+            <div class="component-demo">
+                <h3 style="margin-bottom: 1rem;">Toggle Switch</h3>
+                <label class="toggle">
+                    <input type="checkbox" checked>
+                    <span class="toggle-slider"></span>
+                </label>
+            </div>
+
+            <div class="code-block">&lt;label class="toggle"&gt;
+    &lt;input type="checkbox"&gt;
+    &lt;span class="toggle-slider"&gt;&lt;/span&gt;
+&lt;/label&gt;</div>
+
+            <div class="component-demo">
+                <h3 style="margin-bottom: 1rem;">Checkbox & Radio</h3>
+                <label class="checkbox">
+                    <input type="checkbox" checked>
+                    <span class="checkbox-mark"></span>
+                    Enable velocity sensitivity
+                </label>
+                <div style="margin-top: 1rem;"></div>
+                <label class="radio">
+                    <input type="radio" name="demo-channel" checked>
+                    <span class="radio-mark"></span>
+                    Channel 1
+                </label>
+            </div>
+
+            <div class="component-demo">
+                <h3 style="margin-bottom: 1rem;">Range Slider</h3>
+                <input type="range" class="fader" min="0" max="100" value="75">
+            </div>
+        </section>
+
+        <!-- Layout -->
+        <section id="layout" style="margin-bottom: 4rem;">
+            <h2 style="margin-bottom: 1.5rem;">Layout Components</h2>
+
+            <h3 style="margin-bottom: 1rem;">Panel</h3>
+            <div class="panel">
+                <h3>Panel Component</h3>
+                <p>Panels provide rounded containers with theme-aware backgrounds.</p>
+            </div>
+
+            <div class="code-block">&lt;div class="panel"&gt;
+    &lt;h3&gt;Panel Title&lt;/h3&gt;
+    &lt;p&gt;Panel content&lt;/p&gt;
+&lt;/div&gt;</div>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Flexbox Utilities</h3>
+            <div class="component-demo">
+                <div class="flex gap-2">
+                    <div class="panel" style="flex: 1;">Item 1</div>
+                    <div class="panel" style="flex: 1;">Item 2</div>
+                    <div class="panel" style="flex: 1;">Item 3</div>
+                </div>
+            </div>
+
+            <div class="code-block">&lt;div class="flex gap-2"&gt;...&lt;/div&gt;
+&lt;div class="flex-column gap-3"&gt;...&lt;/div&gt;
+&lt;div class="flex-between"&gt;...&lt;/div&gt;
+&lt;div class="flex-center"&gt;...&lt;/div&gt;</div>
+
+            <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Grid System</h3>
+            <div class="component-demo">
+                <div class="grid grid-3x3 gap-1">
+                    <div class="panel grid-item-square flex-center" style="margin: 0; background: var(--color-green); color: white;">1</div>
+                    <div class="panel grid-item-square flex-center" style="margin: 0;">2</div>
+                    <div class="panel grid-item-square flex-center" style="margin: 0;">3</div>
+                    <div class="panel grid-item-square flex-center" style="margin: 0;">4</div>
+                    <div class="panel grid-item-square flex-center" style="margin: 0;">5</div>
+                    <div class="panel grid-item-square flex-center" style="margin: 0;">6</div>
+                    <div class="panel grid-item-square flex-center" style="margin: 0;">7</div>
+                    <div class="panel grid-item-square flex-center" style="margin: 0;">8</div>
+                    <div class="panel grid-item-square flex-center" style="margin: 0;">9</div>
+                </div>
+            </div>
+
+            <div class="code-block">&lt;!-- Square Grids --&gt;
+&lt;div class="grid grid-3x3 gap-1"&gt;
+    &lt;div class="grid-item-square"&gt;1&lt;/div&gt;
+    &lt;!-- ... --&gt;
+&lt;/div&gt;
+
+&lt;!-- Fibonacci Ratio Grids --&gt;
+&lt;div class="grid grid-fib-5x3 gap-2"&gt;...&lt;/div&gt;</div>
+        </section>
+
+        <!-- Status -->
+        <section id="status" style="margin-bottom: 4rem;">
+            <h2 style="margin-bottom: 1.5rem;">Status & Feedback</h2>
+
+            <div class="component-demo">
+                <div class="demo-label">Status Labels</div>
+                <div class="flex gap-1" style="flex-wrap: wrap;">
+                    <span class="status status-online">Online</span>
+                    <span class="status status-offline">Offline</span>
+                    <span class="status status-warning">Warning</span>
+                    <span class="status status-info">Info</span>
+                    <span class="status status-neutral">Neutral</span>
+                </div>
+            </div>
+
+            <div class="component-demo">
+                <div class="demo-label">Badges</div>
+                <div class="flex gap-1" style="flex-wrap: wrap;">
+                    <span class="badge">Default</span>
+                    <span class="badge badge-primary">Primary</span>
+                    <span class="badge badge-success">Success</span>
+                    <span class="badge badge-warning">Warning</span>
+                    <span class="badge badge-danger">Danger</span>
+                    <span class="badge badge-info">Info</span>
+                </div>
+            </div>
+
+            <div class="component-demo">
+                <div class="demo-label">Progress Bar</div>
+                <div class="progress">
+                    <div class="progress-bar progress-success" style="width: 65%;"></div>
+                </div>
+                <div class="progress-text">Loading... 65%</div>
+            </div>
+
+            <div class="component-demo">
+                <div class="demo-label">Loading Animations</div>
+                <div class="flex gap-3" style="align-items: center;">
+                    <div class="spinner"></div>
+                    <div class="dots-loading">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="alert alert-info" style="margin-top: 2rem;">
+                <button class="alert-close">×</button>
+                <div class="alert-title">Information</div>
+                This is an info alert message.
+            </div>
+        </section>
+
+        <!-- Modal -->
+        <section id="modal" style="margin-bottom: 4rem;">
+            <h2 style="margin-bottom: 1.5rem;">Modal Dialog</h2>
+            <p style="margin-bottom: 1rem;">Modals with backdrop blur and smooth transitions.</p>
+            <button class="button info" id="open-demo-modal">Open Modal</button>
+
+            <div class="code-block" style="margin-top: 2rem;">&lt;div class="modal" id="my-modal"&gt;
+    &lt;div class="modal-content"&gt;
+        &lt;div class="modal-header"&gt;
+            &lt;h2&gt;Modal Title&lt;/h2&gt;
+            &lt;button class="modal-close"&gt;×&lt;/button&gt;
+        &lt;/div&gt;
+        &lt;div class="modal-body"&gt;
+            &lt;p&gt;Modal content&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class="modal-footer"&gt;
+            &lt;button class="button"&gt;Cancel&lt;/button&gt;
+            &lt;button class="button success"&gt;Confirm&lt;/button&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+modal.classList.add('modal-open'); // Show
+modal.classList.remove('modal-open'); // Hide
+&lt;/script&gt;</div>
+        </section>
+
+        <!-- Tables -->
+        <section id="tables" style="margin-bottom: 4rem;">
+            <h2 style="margin-bottom: 1.5rem;">Tables</h2>
+            <table class="table table-striped">
+                <thead>
+                    <tr>
+                        <th>Device</th>
+                        <th>Type</th>
+                        <th>Status</th>
+                        <th>Latency</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Hügelton K102E</td>
+                        <td>Drum Machine</td>
+                        <td><span class="status status-online">Connected</span></td>
+                        <td>3ms</td>
+                    </tr>
+                    <tr>
+                        <td>Hügelton S608</td>
+                        <td>Synthesizer</td>
+                        <td><span class="status status-online">Connected</span></td>
+                        <td>5ms</td>
+                    </tr>
+                    <tr>
+                        <td>USB Interface</td>
+                        <td>Interface</td>
+                        <td><span class="status status-warning">Limited</span></td>
+                        <td>12ms</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <div class="code-block" style="margin-top: 1rem;">&lt;table class="table table-striped"&gt;
+    &lt;thead&gt;...&lt;/thead&gt;
+    &lt;tbody&gt;...&lt;/tbody&gt;
+&lt;/table&gt;</div>
+        </section>
+
+        <!-- Footer -->
+        <footer style="border-top: 1px solid var(--toggle-bg); padding: 2rem 0; margin-top: 4rem;">
+            <div class="flex-between" style="flex-wrap: wrap; gap: 2rem;">
+                <div>
+                    <h3 style="margin-bottom: 0.5rem;">Hügelton Webtool Styles</h3>
+                    <p style="opacity: 0.7;">v1.0.0 • MIT License</p>
+                </div>
+                <div class="flex gap-2">
+                    <a href="preview.html" class="button">View Preview</a>
+                    <a href="https://github.com/hugelton/hugelton-webtool-styles" class="button info">GitHub</a>
+                </div>
+            </div>
+        </footer>
+    </main>
+
+    <!-- Demo Modal -->
+    <div class="modal" id="demo-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Demo Modal</h2>
+                <button class="modal-close" id="close-demo-modal">×</button>
+            </div>
+            <div class="modal-body">
+                <p>This is a demo modal with backdrop blur effect.</p>
+                <div class="panel">
+                    <h3>Features:</h3>
+                    <ul>
+                        <li>Smooth fade-in animation</li>
+                        <li>Backdrop blur effect</li>
+                        <li>Click outside to close</li>
+                        <li>ESC key support</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="button" id="cancel-demo-modal">Cancel</button>
+                <button class="button success">Confirm</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const demoThemeToggle = document.getElementById('demo-theme-toggle');
+        const body = document.body;
+
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        if (savedTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeToggle.checked = true;
+        }
+
+        function toggleTheme() {
+            if (body.getAttribute('data-theme') === 'dark') {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+                themeToggle.checked = false;
+            } else {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+                themeToggle.checked = true;
+            }
+        }
+
+        themeToggle.addEventListener('change', toggleTheme);
+        demoThemeToggle.addEventListener('click', toggleTheme);
+
+        // Modal
+        const openDemoModal = document.getElementById('open-demo-modal');
+        const closeDemoModal = document.getElementById('close-demo-modal');
+        const cancelDemoModal = document.getElementById('cancel-demo-modal');
+        const demoModal = document.getElementById('demo-modal');
+
+        openDemoModal.addEventListener('click', () => {
+            demoModal.classList.add('modal-open');
+        });
+
+        closeDemoModal.addEventListener('click', () => {
+            demoModal.classList.remove('modal-open');
+        });
+
+        cancelDemoModal.addEventListener('click', () => {
+            demoModal.classList.remove('modal-open');
+        });
+
+        demoModal.addEventListener('click', (e) => {
+            if (e.target === demoModal) {
+                demoModal.classList.remove('modal-open');
+            }
+        });
+
+        // ESC key to close modal
+        document.addEventListener('keydown', (e) => {
+            if (e.key === 'Escape') {
+                demoModal.classList.remove('modal-open');
+            }
+        });
+
+        // Install tabs
+        const installTabs = document.querySelectorAll('.install-tab');
+        const installContents = document.querySelectorAll('.install-content');
+
+        installTabs.forEach(tab => {
+            tab.addEventListener('click', () => {
+                const target = tab.getAttribute('data-tab');
+
+                installTabs.forEach(t => t.classList.remove('active'));
+                installContents.forEach(c => c.classList.remove('active'));
+
+                tab.classList.add('active');
+                document.querySelector(`[data-content="${target}"]`).classList.add('active');
+            });
+        });
+
+        // Smooth scroll for navigation
+        document.querySelectorAll('.docs-nav-link').forEach(link => {
+            link.addEventListener('click', (e) => {
+                e.preventDefault();
+                const target = link.getAttribute('href');
+                document.querySelector(target).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+        // Alert close
+        const alertCloses = document.querySelectorAll('.alert-close');
+        alertCloses.forEach(btn => {
+            btn.addEventListener('click', () => {
+                btn.parentElement.style.display = 'none';
+            });
+        });
+    </script>
+</body>
+</html>
