@@ -22,7 +22,7 @@ html {
   --button-bg: #333333;
   --button-text: #e6e6e6;
   --toggle-bg: #cccccc;
-  --toggle-handle: #ffffff;
+  --toggle-handle: #000000;
   --textfield-bg: #ffffff;
   --textfield-text: #1a1a1a;
   --h1-color: #000000;
@@ -43,7 +43,7 @@ html {
   --button-bg: #cccccc;
   --button-text: #1a1a1a;
   --toggle-bg: #1a1a1a;
-  --toggle-handle: #000000;
+  --toggle-handle: #ffffff;
   --textfield-bg: #1a1a1a;
   --textfield-text: #f2f2f2;
   --h1-color: #ffffff;
@@ -777,6 +777,11 @@ h2, h3, h4, h5, h6 {
     transform: rotate(45deg) scale(0.8);
     transition: all 0.3s ease;
   }
+}
+
+// Dark mode checkbox checkmark
+[data-theme="dark"] .checkbox-mark:after {
+  border-color: #000000;
 }
 
 // Radio button component
