@@ -23,21 +23,15 @@ html {
   --button-text: #e6e6e6;
   --toggle-bg: #cccccc;
   --toggle-handle: #333333;
-  --textfield-bg: #cccccc;
+  --textfield-bg: #f5f5f5;
   --textfield-text: #1a1a1a;
   --h1-color: #000000;
-  
+
   // Color palette
   --color-red: #f29600;
   --color-yellow: #009844;
   --color-blue: #c30d23;
   --color-green: #036eb7;
-  
-  // Invert colors
-  --color-red-invert: #0d69ff;
-  --color-yellow-invert: #ff67bb;
-  --color-blue-invert: #3cf2dc;
-  --color-green-invert: #fc9148;
 }
 
 // Dark mode variables
@@ -801,10 +795,10 @@ h2, h3, h4, h5, h6 {
     &:checked + .radio-mark {
       background: var(--button-bg);
       border-color: var(--button-bg);
-      
+
       &:after {
         opacity: 1;
-        transform: scale(1);
+        transform: translate(-50%, -50%) scale(1);
       }
     }
     
