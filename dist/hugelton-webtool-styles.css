@@ -17,7 +17,7 @@ html {
   --button-bg: #333333;
   --button-text: #e6e6e6;
   --toggle-bg: #cccccc;
-  --toggle-handle: #333333;
+  --toggle-handle: #ffffff;
   --textfield-bg: #ffffff;
   --textfield-text: #1a1a1a;
   --h1-color: #000000;
@@ -35,7 +35,7 @@ html {
   --button-bg: #cccccc;
   --button-text: #1a1a1a;
   --toggle-bg: #1a1a1a;
-  --toggle-handle: #cccccc;
+  --toggle-handle: #000000;
   --textfield-bg: #1a1a1a;
   --textfield-text: #f2f2f2;
   --h1-color: #ffffff;
