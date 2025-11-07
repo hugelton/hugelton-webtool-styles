@@ -384,9 +384,4 @@ MIT License - see [LICENSE](LICENSE) file for details
 Contributions are welcome! Please feel free to submit a Pull Request.
 
 ## Credits
-
-Created for Hügelton web-based MIDI and audio tools.
-
----
-
-**Made with ❤️ for Web MIDI developers**
+made by Hügelton Instruments. Kobe Japan.
