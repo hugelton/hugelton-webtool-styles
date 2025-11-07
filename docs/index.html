@@ -220,23 +220,35 @@
             position: relative;
         }
 
-        .toggle-with-icons .toggle-slider::before {
+        /* Icons should be in the empty space, not on the handle */
+        .toggle-with-icons .toggle-slider::after {
+            content: "";
+            position: absolute;
             display: flex;
             align-items: center;
             justify-content: center;
             font-family: 'Fukiai', sans-serif;
             font-size: 0.75rem;
-            color: var(--toggle-handle);
+            top: 50%;
+            transform: translateY(-50%);
+            width: 1.2rem;
+            height: 1.2rem;
+            right: 0.15rem;
         }
 
-        /* Light mode: show moon icon when OFF, sun icon when ON */
-        .toggle-with-icons input:not(:checked) + .toggle-slider::before {
+        /* OFF state: moon icon on the right (empty) side */
+        .toggle-with-icons input:not(:checked) + .toggle-slider::after {
             content: "\EA52"; /* moon outlined */
+            color: var(--toggle-handle); /* icon color matches handle color */
+            right: 0.15rem;
         }
 
-        .toggle-with-icons input:checked + .toggle-slider::before {
+        /* ON state: sun icon on the left (empty) side */
+        .toggle-with-icons input:checked + .toggle-slider::after {
             content: "\EA68"; /* sun filled */
-            color: var(--toggle-bg);
+            color: var(--toggle-bg); /* icon color matches background color */
+            right: auto;
+            left: 0.15rem;
         }
     </style>
 </head>
@@ -285,7 +297,6 @@
             <a href="#status" class="docs-nav-link">Status & Feedback</a>
             <a href="#modal" class="docs-nav-link">Modal</a>
             <a href="#tables" class="docs-nav-link">Tables</a>
-            <a href="#icons" class="docs-nav-link">Icons (Fukiai)</a>
         </div>
     </nav>
 
@@ -474,6 +485,28 @@ localStorage.setItem('theme', 'dark');</div>
 &lt;button class="button warning"&gt;Warning&lt;/button&gt;
 &lt;button class="button danger"&gt;Danger&lt;/button&gt;
 &lt;button class="button info"&gt;Info&lt;/button&gt;</div>
+
+            <h3 style="margin: 2rem 0 1rem 0;">Buttons with Fukiai Icons</h3>
+            <div class="component-demo">
+                <div class="flex gap-2" style="flex-wrap: wrap; align-items: center;">
+                    <button class="button success">
+                        <span class="fukiai-icon" style="margin-right: 0.5rem;">&#xEA03;</span>Play
+                    </button>
+                    <button class="button danger">
+                        <span class="fukiai-icon" style="margin-right: 0.5rem;">&#xEA07;</span>Stop
+                    </button>
+                    <button class="button warning">
+                        <span class="fukiai-icon" style="margin-right: 0.5rem;">&#xEA09;</span>Record
+                    </button>
+                    <button class="button info">
+                        <span class="fukiai-icon" style="margin-right: 0.5rem;">&#xEA33;</span>MIDI
+                    </button>
+                </div>
+            </div>
+
+            <div class="code-block">&lt;button class="button success"&gt;
+    &lt;span style="font-family: 'Fukiai'; margin-right: 0.5rem;"&gt;&amp;#xEA03;&lt;/span&gt;Play
+&lt;/button&gt;</div>
         </section>
 
         <!-- Forms -->
@@ -504,6 +537,64 @@ localStorage.setItem('theme', 'dark');</div>
     &lt;input type="checkbox"&gt;
     &lt;span class="toggle-slider"&gt;&lt;/span&gt;
 &lt;/label&gt;</div>
+
+            <h3 style="margin: 2rem 0 1rem 0;">Toggle with Fukiai Icons</h3>
+            <p style="margin-bottom: 1rem;">Enhance toggles with <strong>Fukiai</strong> icons (music and audio-focused icon font by Hügelton). Icons appear in the empty space, not on the handle:</p>
+            <div class="component-demo">
+                <div style="display: flex; align-items: center; gap: 1rem;">
+                    <label class="toggle toggle-with-icons">
+                        <input type="checkbox">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span style="font-size: 0.875rem; opacity: 0.8;">Theme toggle with moon <span class="fukiai-icon" style="font-size: 1rem;">&#xEA52;</span> / sun <span class="fukiai-icon" style="font-size: 1rem;">&#xEA68;</span></span>
+                </div>
+            </div>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <div class="code-content">&lt;!-- Include Fukiai CSS --&gt;
+&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fukiai@latest/dist/fukiai.css"&gt;
+
+&lt;!-- Icon-enhanced toggle --&gt;
+&lt;label class="toggle toggle-with-icons"&gt;
+    &lt;input type="checkbox"&gt;
+    &lt;span class="toggle-slider"&gt;&lt;/span&gt;
+&lt;/label&gt;</div>
+            </div>
+
+            <div class="code-block">
+                <div class="code-header">
+                    <span class="code-lang">CSS</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <div class="code-content">/* Icons in empty space, colors match handle/background */
+.toggle-with-icons .toggle-slider::after {
+  position: absolute;
+  font-family: 'Fukiai', sans-serif;
+  font-size: 0.75rem;
+  right: 0.15rem;
+}
+
+.toggle-with-icons input:not(:checked) + .toggle-slider::after {
+  content: "\EA52"; /* moon */
+  color: var(--toggle-handle);
+}
+
+.toggle-with-icons input:checked + .toggle-slider::after {
+  content: "\EA68"; /* sun */
+  color: var(--toggle-bg);
+  left: 0.15rem;
+  right: auto;
+}</div>
+            </div>
+
+            <p style="margin-top: 1rem; font-size: 0.875rem; opacity: 0.7;">
+                Fukiai provides 140+ icons for audio controls, waveforms, ports, and UI.
+                Visit <a href="https://hugelton.github.io/Fukiai/" target="_blank" style="color: var(--color-green); font-weight: 600;">hugelton.github.io/Fukiai</a> for the full library.
+            </p>
 
             <div class="component-demo">
                 <h3 style="margin-bottom: 1rem;">Checkbox & Radio</h3>
@@ -701,146 +792,6 @@ modal.classList.remove('modal-open'); // Hide
     &lt;tbody&gt;...&lt;/tbody&gt;
 &lt;/table&gt;</div>
         </section>
-
-        <!-- Icons (Fukiai) -->
-        <section id="icons" style="margin-bottom: 4rem;">
-            <h2 style="margin-bottom: 1.5rem;">Fukiai Icons</h2>
-            <p style="margin-bottom: 1rem;">Shari integrates with <strong>Fukiai</strong>, a music and audio-focused icon font designed by Hügelton. Fukiai provides 140+ icons for controls, waveforms, ports, and UI elements.</p>
-
-            <div class="panel">
-                <h3 style="margin-bottom: 1rem;">Installation</h3>
-                <p style="margin-bottom: 0.5rem;">Fukiai is already included in the docs via CDN:</p>
-                <div class="code-block">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fukiai@latest/dist/fukiai.css"&gt;</div>
-            </div>
-
-            <h3 style="margin: 2rem 0 1rem 0;">Basic Usage</h3>
-            <p style="margin-bottom: 1rem;">Use Unicode characters with the Fukiai font family:</p>
-            <div class="component-demo">
-                <div style="display: flex; gap: 2rem; align-items: center; font-size: 2rem;">
-                    <span class="fukiai-icon">&#xEA01;</span>
-                    <span class="fukiai-icon">&#xEA75;</span>
-                    <span class="fukiai-icon">&#xEA6E;</span>
-                    <span class="fukiai-icon">&#xEA51;</span>
-                    <span class="fukiai-icon">&#xEA68;</span>
-                </div>
-            </div>
-            <div class="code-block">&lt;span style="font-family: 'Fukiai', sans-serif;"&gt;&amp;#xEA01;&lt;/span&gt;
-&lt;span style="font-family: 'Fukiai', sans-serif;"&gt;&amp;#xEA75;&lt;/span&gt;
-&lt;span style="font-family: 'Fukiai', sans-serif;"&gt;&amp;#xEA6E;&lt;/span&gt;</div>
-
-            <h3 style="margin: 2rem 0 1rem 0;">Icon Categories</h3>
-            <div class="panel">
-                <ul style="line-height: 2;">
-                    <li><strong>Control</strong> - Playback controls (play, pause, stop, rec, eject, skip)</li>
-                    <li><strong>Waveform</strong> - Audio waveforms (sine, square, sawtooth, triangle, noise)</li>
-                    <li><strong>UI</strong> - Interface elements (knobs, buttons, sliders, toggles)</li>
-                    <li><strong>Port</strong> - Connection types (MIDI, USB, XLR, 1/4", 1/8", DMX)</li>
-                    <li><strong>Symbol</strong> - General symbols (metronome, lock, speaker, weather)</li>
-                    <li><strong>Function</strong> - Signal processing (envelope, LFO, multiply, phase)</li>
-                    <li><strong>Numbers</strong> - Circled roman numerals (I-IV)</li>
-                </ul>
-            </div>
-
-            <h3 style="margin: 2rem 0 1rem 0;">Example: Icon-Enhanced Toggle Switch</h3>
-            <p style="margin-bottom: 1rem;">The theme toggle in the top-left menu uses Fukiai icons to show moon/sun:</p>
-            <div class="component-demo">
-                <div style="display: flex; align-items: center; gap: 1rem;">
-                    <label class="toggle toggle-with-icons">
-                        <input type="checkbox">
-                        <span class="toggle-slider"></span>
-                    </label>
-                    <span style="font-size: 0.875rem; opacity: 0.8;">Toggle to see moon <span class="fukiai-icon" style="font-size: 1rem;">&#xEA52;</span> and sun <span class="fukiai-icon" style="font-size: 1rem;">&#xEA68;</span> icons</span>
-                </div>
-            </div>
-
-            <div class="code-block" style="margin-top: 1rem;">/* CSS for icon-enhanced toggle */
-.toggle-with-icons .toggle-slider::before {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-family: 'Fukiai', sans-serif;
-  font-size: 0.75rem;
-}
-
-/* Moon icon when OFF, sun icon when ON */
-.toggle-with-icons input:not(:checked) + .toggle-slider::before {
-  content: "\EA52"; /* moon outlined */
-}
-
-.toggle-with-icons input:checked + .toggle-slider::before {
-  content: "\EA68"; /* sun filled */
-}</div>
-
-            <h3 style="margin: 2rem 0 1rem 0;">Popular Icon Examples</h3>
-            <div class="icon-grid">
-                <div class="icon-item">
-                    <span class="fukiai-icon">&#xEA03;</span>
-                    <span>Play</span>
-                    <code>U+EA03</code>
-                </div>
-                <div class="icon-item">
-                    <span class="fukiai-icon">&#xEA05;</span>
-                    <span>Pause</span>
-                    <code>U+EA05</code>
-                </div>
-                <div class="icon-item">
-                    <span class="fukiai-icon">&#xEA07;</span>
-                    <span>Stop</span>
-                    <code>U+EA07</code>
-                </div>
-                <div class="icon-item">
-                    <span class="fukiai-icon">&#xEA09;</span>
-                    <span>Record</span>
-                    <code>U+EA09</code>
-                </div>
-                <div class="icon-item">
-                    <span class="fukiai-icon">&#xEA75;</span>
-                    <span>Sine Wave</span>
-                    <code>U+EA75</code>
-                </div>
-                <div class="icon-item">
-                    <span class="fukiai-icon">&#xEA77;</span>
-                    <span>Square Wave</span>
-                    <code>U+EA77</code>
-                </div>
-                <div class="icon-item">
-                    <span class="fukiai-icon">&#xEA79;</span>
-                    <span>Sawtooth</span>
-                    <code>U+EA79</code>
-                </div>
-                <div class="icon-item">
-                    <span class="fukiai-icon">&#xEA6E;</span>
-                    <span>Knob</span>
-                    <code>U+EA6E</code>
-                </div>
-                <div class="icon-item">
-                    <span class="fukiai-icon">&#xEA33;</span>
-                    <span>MIDI</span>
-                    <code>U+EA33</code>
-                </div>
-                <div class="icon-item">
-                    <span class="fukiai-icon">&#xEA39;</span>
-                    <span>1/4" Jack</span>
-                    <code>U+EA39</code>
-                </div>
-                <div class="icon-item">
-                    <span class="fukiai-icon">&#xEA51;</span>
-                    <span>Moon</span>
-                    <code>U+EA51</code>
-                </div>
-                <div class="icon-item">
-                    <span class="fukiai-icon">&#xEA68;</span>
-                    <span>Sun</span>
-                    <code>U+EA68</code>
-                </div>
-            </div>
-
-            <div class="alert alert-info" style="margin-top: 2rem;">
-                <div class="alert-title">Full Icon Reference</div>
-                Visit <a href="https://hugelton.github.io/Fukiai/" target="_blank" style="color: var(--color-green); font-weight: 600;">hugelton.github.io/Fukiai</a> for the complete icon library with Unicode references and searchable interface.
-            </div>
-        </section>
-
 
         <!-- Footer -->
         <footer style="border-top: 1px solid var(--toggle-bg); padding: 2rem 0; margin-top: 4rem;">
