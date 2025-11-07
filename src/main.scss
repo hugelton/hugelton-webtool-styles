@@ -107,15 +107,36 @@ h2, h3, h4, h5, h6 {
   font-size: 1rem;
   font-weight: 400;
   transition: all 0.3s ease;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
   text-decoration: none;
   
-  &:hover {
+  &:hover:not(:disabled) {
     opacity: 0.8;
+    transform: translateY(-1px);
   }
   
-  &:active {
+  &:active:not(:disabled) {
     transform: scale(0.95);
+  }
+  
+  &:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px var(--body-text);
+  }
+  
+  &:disabled,
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+  }
+  
+  &:disabled:hover,
+  &[disabled]:hover {
+    opacity: 0.5;
+    transform: none;
   }
   
   // Color variants
@@ -187,18 +208,19 @@ h2, h3, h4, h5, h6 {
   }
 }
 
-// Light mode: ON toggle handle should be white
+// Light mode: ON toggle handle should be black
 :root .toggle input:checked + .toggle-slider:before {
-  background-color: #ffffff;
+  background-color: #000000;
 }
 
-// Text field - no rounded corners
+// Text field with rounded corners
 .textfield {
   width: 100%;
   padding: 0.5rem;
   background: var(--textfield-bg);
   color: var(--textfield-text);
   border: 2px solid transparent;
+  border-radius: 0.5rem;
   font-family: inherit;
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -207,6 +229,13 @@ h2, h3, h4, h5, h6 {
     outline: none;
     border-color: var(--body-text);
     box-shadow: 0 0 0 1px var(--body-text);
+  }
+  
+  &:disabled,
+  &[disabled] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: var(--toggle-bg);
   }
   
   &::placeholder {

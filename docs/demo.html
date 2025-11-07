@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shari - Component Demo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter+Tight:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="shari.min.css">
+    <style>
+        .demo-section {
+            margin: 2rem 0;
+            padding: 1rem;
+            border: 1px solid var(--toggle-bg);
+            border-radius: 0.5rem;
+        }
+        .demo-grid {
+            display: grid;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        .demo-2col {
+            grid-template-columns: 1fr 1fr;
+        }
+        .demo-3col {
+            grid-template-columns: repeat(3, 1fr);
+        }
+        .demo-4col {
+            grid-template-columns: repeat(4, 1fr);
+        }
+        .component-preview {
+            padding: 1rem;
+            background: var(--panel-bg);
+            border-radius: 0.5rem;
+            border: 1px solid var(--toggle-bg);
+        }
+        .component-title {
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+            color: var(--body-text);
+        }
+        .state-demo {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <!-- Theme Toggle -->
+    <div class="theme-toggle">
+        <label class="toggle">
+            <input type="checkbox" id="theme-toggle">
+            <span class="toggle-slider"></span>
+        </label>
+    </div>
+
+    <div class="p-3" style="max-width: 1200px; margin: 0 auto;">
+        <h1>Shari Component Demo</h1>
+        <p>Complete showcase of all Shari CSS framework components with all states and variants.</p>
+
+        <!-- Buttons -->
+        <div class="demo-section">
+            <h2>Buttons</h2>
+            
+            <div class="component-preview">
+                <div class="component-title">Basic States</div>
+                <div class="state-demo">
+                    <button class="button">Normal</button>
+                    <button class="button" disabled>Disabled</button>
+                    <button class="button" style="transform: scale(0.95);">Active (Demo)</button>
+                </div>
+            </div>
+
+            <div class="demo-grid demo-2col">
+                <div class="component-preview">
+                    <div class="component-title">Color Variants</div>
+                    <div class="state-demo">
+                        <button class="button">Default</button>
+                        <button class="button danger">Danger</button>
+                        <button class="button warning">Warning</button>
+                        <button class="button success">Success</button>
+                        <button class="button info">Info</button>
+                    </div>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="component-title">Disabled Variants</div>
+                    <div class="state-demo">
+                        <button class="button" disabled>Default</button>
+                        <button class="button danger" disabled>Danger</button>
+                        <button class="button warning" disabled>Warning</button>
+                        <button class="button success" disabled>Success</button>
+                        <button class="button info" disabled>Info</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Text Fields -->
+        <div class="demo-section">
+            <h2>Text Fields</h2>
+            
+            <div class="demo-grid demo-2col">
+                <div class="component-preview">
+                    <div class="component-title">Normal States</div>
+                    <input type="text" class="textfield" placeholder="Normal textfield">
+                    <br><br>
+                    <input type="text" class="textfield" value="Focused (click to test)" onfocus="this.style.borderColor='var(--body-text)'">
+                    <br><br>
+                    <input type="text" class="textfield" placeholder="Disabled textfield" disabled>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="component-title">Input Types</div>
+                    <input type="email" class="textfield" placeholder="Email input">
+                    <br><br>
+                    <input type="password" class="textfield" placeholder="Password input">
+                    <br><br>
+                    <textarea class="textfield" placeholder="Textarea" rows="3"></textarea>
+                </div>
+            </div>
+        </div>
+
+        <!-- Form Controls -->
+        <div class="demo-section">
+            <h2>Form Controls</h2>
+            
+            <div class="demo-grid demo-3col">
+                <div class="component-preview">
+                    <div class="component-title">Toggle Switch</div>
+                    <label class="toggle">
+                        <input type="checkbox">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span style="margin-left: 0.5rem;">Off</span>
+                    <br><br>
+                    <label class="toggle">
+                        <input type="checkbox" checked>
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span style="margin-left: 0.5rem;">On</span>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="component-title">Checkboxes</div>
+                    <label class="checkbox">
+                        <input type="checkbox">
+                        <span class="checkbox-mark"></span>
+                        Unchecked
+                    </label>
+                    <br><br>
+                    <label class="checkbox">
+                        <input type="checkbox" checked>
+                        <span class="checkbox-mark"></span>
+                        Checked
+                    </label>
+                    <br><br>
+                    <label class="checkbox">
+                        <input type="checkbox" disabled>
+                        <span class="checkbox-mark"></span>
+                        Disabled
+                    </label>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="component-title">Radio Buttons</div>
+                    <label class="radio">
+                        <input type="radio" name="demo-radio">
+                        <span class="radio-mark"></span>
+                        Option 1
+                    </label>
+                    <br><br>
+                    <label class="radio">
+                        <input type="radio" name="demo-radio" checked>
+                        <span class="radio-mark"></span>
+                        Option 2
+                    </label>
+                    <br><br>
+                    <label class="radio">
+                        <input type="radio" name="demo-radio" disabled>
+                        <span class="radio-mark"></span>
+                        Disabled
+                    </label>
+                </div>
+            </div>
+
+            <div class="demo-grid demo-2col">
+                <div class="component-preview">
+                    <div class="component-title">Dropdown</div>
+                    <div class="dropdown">
+                        <button class="dropdown-button" onclick="toggleDropdown(this)">Select an option</button>
+                        <div class="dropdown-menu">
+                            <div class="dropdown-item" onclick="selectItem(this, 'Option 1')">Option 1</div>
+                            <div class="dropdown-item" onclick="selectItem(this, 'Option 2')">Option 2</div>
+                            <div class="dropdown-item" onclick="selectItem(this, 'Option 3')">Option 3</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="component-title">Range Slider (Fader)</div>
+                    <input type="range" class="fader" min="0" max="100" value="50">
+                    <br><br>
+                    <input type="range" class="fader" min="0" max="100" value="25" disabled>
+                    <div style="font-size: 0.75rem; margin-top: 0.25rem; opacity: 0.6;">Disabled slider</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Status & Feedback -->
+        <div class="demo-section">
+            <h2>Status & Feedback</h2>
+            
+            <div class="demo-grid demo-2col">
+                <div class="component-preview">
+                    <div class="component-title">Status Labels</div>
+                    <span class="status status-online">Online</span>
+                    <span class="status status-offline">Offline</span>
+                    <span class="status status-warning">Warning</span>
+                    <span class="status status-info">Info</span>
+                    <span class="status status-neutral">Neutral</span>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="component-title">Badges</div>
+                    <span class="badge">Default</span>
+                    <span class="badge badge-primary">Primary</span>
+                    <span class="badge badge-success">Success</span>
+                    <span class="badge badge-warning">Warning</span>
+                    <span class="badge badge-danger">Danger</span>
+                    <span class="badge badge-info">Info</span>
+                </div>
+            </div>
+
+            <div class="demo-grid demo-2col">
+                <div class="component-preview">
+                    <div class="component-title">Chips</div>
+                    <span class="chip">Basic Chip</span>
+                    <span class="chip chip-removable">
+                        Removable Chip
+                        <button class="chip-remove" onclick="this.parentElement.remove()">×</button>
+                    </span>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="component-title">Progress Bars</div>
+                    <div class="progress">
+                        <div class="progress-bar" style="width: 60%;"></div>
+                    </div>
+                    <div class="progress-text">60%</div>
+                    
+                    <div class="progress">
+                        <div class="progress-bar progress-success" style="width: 80%;"></div>
+                    </div>
+                    <div class="progress-text">Success - 80%</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Alerts -->
+        <div class="demo-section">
+            <h2>Alerts</h2>
+            
+            <div class="alert alert-info">
+                <div class="alert-title">Info Alert</div>
+                This is an informational alert with some content.
+                <button class="alert-close" onclick="this.parentElement.remove()">×</button>
+            </div>
+            
+            <div class="alert alert-success">
+                <div class="alert-title">Success Alert</div>
+                Operation completed successfully!
+                <button class="alert-close" onclick="this.parentElement.remove()">×</button>
+            </div>
+            
+            <div class="alert alert-warning">
+                <div class="alert-title">Warning Alert</div>
+                Please check your input and try again.
+                <button class="alert-close" onclick="this.parentElement.remove()">×</button>
+            </div>
+            
+            <div class="alert alert-danger">
+                <div class="alert-title">Danger Alert</div>
+                An error occurred. Please contact support.
+                <button class="alert-close" onclick="this.parentElement.remove()">×</button>
+            </div>
+        </div>
+
+        <!-- Loading & Spinners -->
+        <div class="demo-section">
+            <h2>Loading & Spinners</h2>
+            
+            <div class="demo-grid demo-3col">
+                <div class="component-preview">
+                    <div class="component-title">Spinners</div>
+                    <div class="spinner spinner-sm"></div>
+                    <div class="spinner"></div>
+                    <div class="spinner spinner-lg"></div>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="component-title">Dots Loading</div>
+                    <div class="dots-loading">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="component-title">Loading with Text</div>
+                    <div class="loading">
+                        <div class="spinner"></div>
+                        <div class="loading-text">Loading...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Layout Components -->
+        <div class="demo-section">
+            <h2>Layout Components</h2>
+            
+            <div class="demo-grid demo-2col">
+                <div class="component-preview">
+                    <div class="component-title">Panels</div>
+                    <div class="panel">
+                        <h3>Panel Title</h3>
+                        <p>This is a panel with some content inside. Panels adapt to the theme automatically.</p>
+                    </div>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="component-title">Box Utilities</div>
+                    <div class="box">Default Box</div>
+                    <br>
+                    <div class="box box-primary">Primary Box</div>
+                    <br>
+                    <div class="box box-center">Centered Content</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid System -->
+        <div class="demo-section">
+            <h2>Grid System</h2>
+            
+            <div class="component-preview">
+                <div class="component-title">Square Grids</div>
+                <div class="grid grid-2x2 m-2">
+                    <div class="grid-item-square box box-center">1</div>
+                    <div class="grid-item-square box box-center">2</div>
+                    <div class="grid-item-square box box-center">3</div>
+                    <div class="grid-item-square box box-center">4</div>
+                </div>
+            </div>
+            
+            <div class="component-preview">
+                <div class="component-title">Fibonacci Grids</div>
+                <div class="grid grid-fib-3x2 m-2">
+                    <div class="box box-center">3fr</div>
+                    <div class="box box-center">2fr</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Tables -->
+        <div class="demo-section">
+            <h2>Tables</h2>
+            
+            <div class="component-preview">
+                <div class="component-title">Basic Table</div>
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Component 1</td>
+                            <td><span class="status status-online">Online</span></td>
+                            <td><button class="button">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>Component 2</td>
+                            <td><span class="status status-warning">Warning</span></td>
+                            <td><button class="button">Edit</button></td>
+                        </tr>
+                        <tr>
+                            <td>Component 3</td>
+                            <td><span class="status status-offline">Offline</span></td>
+                            <td><button class="button" disabled>Edit</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+
+        <!-- Tooltips -->
+        <div class="demo-section">
+            <h2>Tooltips</h2>
+            
+            <div class="demo-grid demo-4col">
+                <div class="component-preview">
+                    <div class="component-title">Top Tooltip</div>
+                    <div class="tooltip">
+                        <button class="button">Hover me</button>
+                        <div class="tooltip-text">This is a tooltip!</div>
+                    </div>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="component-title">Right Tooltip</div>
+                    <div class="tooltip">
+                        <button class="button">Hover me</button>
+                        <div class="tooltip-text tooltip-right">Right tooltip</div>
+                    </div>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="component-title">Left Tooltip</div>
+                    <div class="tooltip">
+                        <button class="button">Hover me</button>
+                        <div class="tooltip-text tooltip-left">Left tooltip</div>
+                    </div>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="component-title">With Status</div>
+                    <div class="tooltip">
+                        <span class="status status-info">Info</span>
+                        <div class="tooltip-text">Additional information</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modals -->
+        <div class="demo-section">
+            <h2>Modal</h2>
+            
+            <div class="component-preview">
+                <div class="component-title">Modal Demo</div>
+                <button class="button" onclick="openModal()">Open Modal</button>
+            </div>
+        </div>
+
+        <!-- Lists -->
+        <div class="demo-section">
+            <h2>Lists</h2>
+            
+            <div class="demo-grid demo-2col">
+                <div class="component-preview">
+                    <div class="component-title">Basic List</div>
+                    <ul class="list">
+                        <li>List item 1</li>
+                        <li>List item 2</li>
+                        <li>List item 3</li>
+                    </ul>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="component-title">Ordered List</div>
+                    <ul class="list list-ordered">
+                        <li>First item</li>
+                        <li>Second item</li>
+                        <li>Third item</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Utility Classes -->
+        <div class="demo-section">
+            <h2>Utility Classes</h2>
+            
+            <div class="demo-grid demo-3col">
+                <div class="component-preview">
+                    <div class="component-title">Spacing (Fibonacci)</div>
+                    <div class="box m-1">Margin 1 (1rem)</div>
+                    <div class="box p-2">Padding 2 (1rem)</div>
+                    <div class="box m-3">Margin 3 (2rem)</div>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="component-title">Flexbox</div>
+                    <div class="flex flex-between">
+                        <span>Left</span>
+                        <span>Right</span>
+                    </div>
+                    <br>
+                    <div class="flex flex-center">
+                        <span>Centered</span>
+                    </div>
+                </div>
+                
+                <div class="component-preview">
+                    <div class="component-title">Text Alignment</div>
+                    <div class="text-left">Left aligned</div>
+                    <div class="text-center">Center aligned</div>
+                    <div class="text-right">Right aligned</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal -->
+    <div class="modal" id="demo-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Demo Modal</h2>
+                <button class="modal-close" onclick="closeModal()">×</button>
+            </div>
+            <div class="modal-body">
+                <p>This is a modal dialog with backdrop blur effect. It demonstrates the modal component in action.</p>
+                <button class="button success">Success Action</button>
+                <button class="button" onclick="closeModal()">Cancel</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Theme toggle
+        const themeToggle = document.getElementById('theme-toggle');
+        const body = document.body;
+
+        themeToggle.addEventListener('change', function() {
+            if (this.checked) {
+                body.setAttribute('data-theme', 'dark');
+                localStorage.setItem('theme', 'dark');
+            } else {
+                body.removeAttribute('data-theme');
+                localStorage.setItem('theme', 'light');
+            }
+        });
+
+        // Load saved theme
+        const savedTheme = localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            body.setAttribute('data-theme', 'dark');
+            themeToggle.checked = true;
+        }
+
+        // Dropdown functionality
+        function toggleDropdown(button) {
+            const dropdown = button.closest('.dropdown');
+            dropdown.classList.toggle('dropdown-open');
+        }
+
+        function selectItem(item, value) {
+            const dropdown = item.closest('.dropdown');
+            const button = dropdown.querySelector('.dropdown-button');
+            button.textContent = value;
+            dropdown.classList.remove('dropdown-open');
+        }
+
+        // Modal functionality
+        function openModal() {
+            const modal = document.getElementById('demo-modal');
+            modal.classList.add('modal-open');
+            body.style.overflow = 'hidden';
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('demo-modal');
+            modal.classList.remove('modal-open');
+            body.style.overflow = '';
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(e) {
+            if (!e.target.closest('.dropdown')) {
+                document.querySelectorAll('.dropdown').forEach(dropdown => {
+                    dropdown.classList.remove('dropdown-open');
+                });
+            }
+        });
+
+        // Close modal when clicking backdrop
+        document.getElementById('demo-modal').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeModal();
+            }
+        });
+    </script>
+</body>
+</html>

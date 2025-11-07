@@ -10,11 +10,12 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ### Build & Development
 ```bash
-npm run dev       # Watch mode - compiles SCSS to expanded CSS on file changes
-npm run build     # Production build - creates both expanded and minified CSS
-npm run preview   # Start local HTTP server on http://127.0.0.1:8080
-npm run watch     # Alias for dev
-npm run serve     # Alias for preview
+npm install      # Install dependencies (sass)
+npm run dev      # Watch mode - compiles SCSS to expanded CSS on file changes
+npm run build    # Production build - creates both expanded and minified CSS
+npm run preview  # Start local HTTP server on http://127.0.0.1:8080
+npm run watch    # Alias for dev
+npm run serve    # Alias for preview
 ```
 
 ### Output Files
@@ -26,8 +27,8 @@ npm run serve     # Alias for preview
 ### File Structure
 The project uses a monolithic architecture with all styles in a single SCSS file:
 - **src/main.scss** - Single source file containing all framework code
-- **preview.html** - Interactive demo showcasing all components
-- **dist/** - Compiled CSS output
+- **docs/index.html** - Documentation site with interactive component examples
+- **dist/** - Compiled CSS output (not committed to repo)
 
 ### Why Monolithic?
 This framework intentionally uses a single SCSS file rather than modular imports. This design choice prioritizes:
@@ -123,7 +124,7 @@ Many components require JavaScript for full functionality:
 - Theme: Set `[data-theme="dark"]` on body
 - Tooltips: Pure CSS with `:hover` states
 
-See preview.html for reference implementations.
+See docs/index.html for reference implementations and interactive examples.
 
 ## Making Changes
 
@@ -132,7 +133,7 @@ See preview.html for reference implementations.
 2. Follow existing naming conventions (lowercase, hyphenated)
 3. Include theme variants for dark mode when color-dependent
 4. Run `npm run build` to compile
-5. Test in preview.html
+5. Test in docs/index.html
 
 ### Modifying Colors or Spacing
 1. Update CSS variables in `:root` and `[data-theme="dark"]` sections
@@ -142,8 +143,8 @@ See preview.html for reference implementations.
 
 ### Testing Changes
 1. Run `npm run dev` for watch mode during development
-2. Open preview.html in browser
-3. Test both light and dark themes
+2. Run `npm run preview` and open http://127.0.0.1:8080/docs/ in browser
+3. Test both light and dark themes using the toggle
 4. Check responsive behavior and component interactions
 
 ## Browser Compatibility
