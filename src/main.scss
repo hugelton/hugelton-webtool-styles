@@ -340,6 +340,42 @@ h2, h3, h4, h5, h6 {
 .gap-4 { gap: var(--fib-4); }
 .gap-5 { gap: var(--fib-5); }
 
+// Demo box utility (different from panel)
+.box {
+  padding: 1rem;
+  border: 2px solid var(--toggle-bg);
+  border-radius: 0.5rem;
+  background: var(--textfield-bg);
+  color: var(--panel-text);
+  text-align: center;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  
+  &.box-primary {
+    background: var(--color-green);
+    border-color: var(--color-green);
+    color: white;
+  }
+  
+  &.box-success {
+    background: var(--color-yellow);
+    border-color: var(--color-yellow);
+    color: white;
+  }
+  
+  &.box-warning {
+    background: var(--color-red);
+    border-color: var(--color-red);
+    color: white;
+  }
+  
+  &.box-danger {
+    background: var(--color-blue);
+    border-color: var(--color-blue);
+    color: white;
+  }
+}
+
 // Text utilities
 .text-center { text-align: center; }
 .text-left { text-align: left; }
@@ -839,6 +875,18 @@ h2, h3, h4, h5, h6 {
   }
 }
 
+// Dark mode radio button adjustments
+[data-theme="dark"] {
+  .radio-mark:after {
+    background: #000;
+  }
+  
+  .table th,
+  .table td {
+    border-color: rgba(255, 255, 255, 0.2);
+  }
+}
+
 // Badge/Chip component
 .badge {
   display: inline-flex;
@@ -1080,9 +1128,6 @@ h2, h3, h4, h5, h6 {
 .table {
   width: 100%;
   border-collapse: collapse;
-  background: var(--panel-bg);
-  border-radius: 0.5rem;
-  overflow: hidden;
 }
 
 .table th,
@@ -1093,7 +1138,6 @@ h2, h3, h4, h5, h6 {
 }
 
 .table th {
-  background: var(--toggle-bg);
   font-weight: 600;
   color: var(--panel-text);
 }

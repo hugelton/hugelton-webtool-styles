@@ -13,6 +13,8 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 npm run dev       # Watch mode - compiles SCSS to expanded CSS on file changes
 npm run build     # Production build - creates both expanded and minified CSS
 npm run preview   # Start local HTTP server on http://127.0.0.1:8080
+npm run watch     # Alias for dev
+npm run serve     # Alias for preview
 ```
 
 ### Output Files

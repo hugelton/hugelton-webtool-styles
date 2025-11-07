@@ -344,6 +344,37 @@ h2, h3, h4, h5, h6 {
   gap: var(--fib-5);
 }
 
+.box {
+  padding: 1rem;
+  border: 2px solid var(--toggle-bg);
+  border-radius: 0.5rem;
+  background: var(--textfield-bg);
+  color: var(--panel-text);
+  text-align: center;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+.box.box-primary {
+  background: var(--color-green);
+  border-color: var(--color-green);
+  color: white;
+}
+.box.box-success {
+  background: var(--color-yellow);
+  border-color: var(--color-yellow);
+  color: white;
+}
+.box.box-warning {
+  background: var(--color-red);
+  border-color: var(--color-red);
+  color: white;
+}
+.box.box-danger {
+  background: var(--color-blue);
+  border-color: var(--color-blue);
+  color: white;
+}
+
 .text-center {
   text-align: center;
 }
@@ -802,6 +833,14 @@ h2, h3, h4, h5, h6 {
   transition: all 0.3s ease;
 }
 
+[data-theme=dark] .radio-mark:after {
+  background: #000;
+}
+[data-theme=dark] .table th,
+[data-theme=dark] .table td {
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
 .badge {
   display: inline-flex;
   align-items: center;
@@ -1014,9 +1053,6 @@ h2, h3, h4, h5, h6 {
 .table {
   width: 100%;
   border-collapse: collapse;
-  background: var(--panel-bg);
-  border-radius: 0.5rem;
-  overflow: hidden;
 }
 
 .table th,
@@ -1027,7 +1063,6 @@ h2, h3, h4, h5, h6 {
 }
 
 .table th {
-  background: var(--toggle-bg);
   font-weight: 600;
   color: var(--panel-text);
 }

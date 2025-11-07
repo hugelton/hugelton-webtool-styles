@@ -10,15 +10,21 @@
     <link rel="stylesheet" href="dist/hugelton-webtool-styles.css">
     <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
     <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" id="hljs-light">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/atom-one-dark.min.css" id="hljs-dark" disabled>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
     <style>
         .docs-sidebar {
             position: fixed;
             left: 0;
-            top: 5rem;
+            top: 0;
             width: 250px;
-            height: calc(100vh - 5rem);
+            height: 100vh;
             background: var(--panel-bg);
-            padding: 2rem 1rem;
+            padding-top: 6rem;
+            padding-bottom: 2rem;
+            padding-left: 1rem;
+            padding-right: 1rem;
             overflow-y: auto;
             border-right: 1px solid var(--toggle-bg);
         }
@@ -57,15 +63,60 @@
         }
 
         .code-block {
+            position: relative;
             background: var(--textfield-bg);
             border: 1px solid var(--toggle-bg);
             border-radius: 0.5rem;
-            padding: 1rem;
             margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .code-content {
+            padding: 1rem;
             overflow-x: auto;
-            font-family: 'Monaco', 'Courier New', monospace;
+            font-family: 'JetBrains Mono', 'SF Mono', Monaco, 'Cascadia Code', 'Roboto Mono', Consolas, 'Courier New', monospace;
             font-size: 0.875rem;
             line-height: 1.5;
+            color: var(--panel-text);
+            white-space: pre;
+        }
+        
+        .code-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5rem 1rem;
+            background: var(--toggle-bg);
+            border-bottom: 1px solid var(--toggle-bg);
+            font-size: 0.75rem;
+            color: var(--body-text);
+        }
+        
+        .code-lang {
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--body-text);
+            cursor: pointer;
+            padding: 0.25rem 0.5rem;
+            border-radius: 0.25rem;
+            font-size: 0.75rem;
+            transition: all 0.2s ease;
+        }
+        
+        .copy-btn:hover {
+            background: var(--button-bg);
+            color: var(--button-text);
+        }
+        
+        .copy-btn.copied {
+            background: var(--color-yellow);
+            color: white;
         }
 
         .component-demo {
@@ -148,12 +199,6 @@
             </a>
 
             <div class="menu-nav">
-                <a href="preview.html" class="menu-link">
-                    <ion-icon name="eye-outline"></ion-icon>
-                </a>
-                <a href="docs.html" class="menu-link">
-                    <ion-icon name="book-outline"></ion-icon>
-                </a>
                 <label class="toggle">
                     <input type="checkbox" id="theme-toggle">
                     <span class="toggle-slider"></span>
@@ -380,15 +425,20 @@ localStorage.setItem('theme', 'dark');</div>
         <section id="forms" style="margin-bottom: 4rem;">
             <h2 style="margin-bottom: 1.5rem;">Form Elements</h2>
 
+            <h3 style="margin-bottom: 1rem;">Text Input</h3>
             <div class="component-demo">
-                <h3 style="margin-bottom: 1rem;">Text Input</h3>
                 <input type="text" class="textfield" placeholder="Enter device name" value="Hügelton K102E">
             </div>
+            <div class="code-block">
+                <div class="code-header">
+                    <span class="code-lang">HTML</span>
+                    <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                </div>
+                <div class="code-content">&lt;input type="text" class="textfield" placeholder="Device name"&gt;</div>
+            </div>
 
-            <div class="code-block">&lt;input type="text" class="textfield" placeholder="Device name"&gt;</div>
-
+            <h3 style="margin: 2rem 0 1rem 0;">Toggle Switch</h3>
             <div class="component-demo">
-                <h3 style="margin-bottom: 1rem;">Toggle Switch</h3>
                 <label class="toggle">
                     <input type="checkbox" checked>
                     <span class="toggle-slider"></span>
@@ -439,9 +489,9 @@ localStorage.setItem('theme', 'dark');</div>
             <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Flexbox Utilities</h3>
             <div class="component-demo">
                 <div class="flex gap-2">
-                    <div class="panel" style="flex: 1;">Item 1</div>
-                    <div class="panel" style="flex: 1;">Item 2</div>
-                    <div class="panel" style="flex: 1;">Item 3</div>
+                    <div class="box box-primary" style="flex: 1;">Item 1</div>
+                    <div class="box" style="flex: 1;">Item 2</div>
+                    <div class="box box-success" style="flex: 1;">Item 3</div>
                 </div>
             </div>
 
@@ -453,15 +503,15 @@ localStorage.setItem('theme', 'dark');</div>
             <h3 style="margin-top: 2rem; margin-bottom: 1rem;">Grid System</h3>
             <div class="component-demo">
                 <div class="grid grid-3x3 gap-1">
-                    <div class="panel grid-item-square flex-center" style="margin: 0; background: var(--color-green); color: white;">1</div>
-                    <div class="panel grid-item-square flex-center" style="margin: 0;">2</div>
-                    <div class="panel grid-item-square flex-center" style="margin: 0;">3</div>
-                    <div class="panel grid-item-square flex-center" style="margin: 0;">4</div>
-                    <div class="panel grid-item-square flex-center" style="margin: 0;">5</div>
-                    <div class="panel grid-item-square flex-center" style="margin: 0;">6</div>
-                    <div class="panel grid-item-square flex-center" style="margin: 0;">7</div>
-                    <div class="panel grid-item-square flex-center" style="margin: 0;">8</div>
-                    <div class="panel grid-item-square flex-center" style="margin: 0;">9</div>
+                    <div class="box box-primary grid-item-square flex-center">1</div>
+                    <div class="box grid-item-square flex-center">2</div>
+                    <div class="box box-success grid-item-square flex-center">3</div>
+                    <div class="box grid-item-square flex-center">4</div>
+                    <div class="box box-warning grid-item-square flex-center">5</div>
+                    <div class="box grid-item-square flex-center">6</div>
+                    <div class="box box-danger grid-item-square flex-center">7</div>
+                    <div class="box grid-item-square flex-center">8</div>
+                    <div class="box box-primary grid-item-square flex-center">9</div>
                 </div>
             </div>
 
@@ -597,6 +647,7 @@ modal.classList.remove('modal-open'); // Hide
 &lt;/table&gt;</div>
         </section>
 
+
         <!-- Footer -->
         <footer style="border-top: 1px solid var(--toggle-bg); padding: 2rem 0; margin-top: 4rem;">
             <div class="flex-between" style="flex-wrap: wrap; gap: 2rem;">
@@ -605,7 +656,6 @@ modal.classList.remove('modal-open'); // Hide
                     <p style="opacity: 0.7;">v1.0.0 • MIT License</p>
                 </div>
                 <div class="flex gap-2">
-                    <a href="preview.html" class="button">View Preview</a>
                     <a href="https://github.com/hugelton/hugelton-webtool-styles" class="button info">GitHub</a>
                 </div>
             </div>
@@ -651,14 +701,21 @@ modal.classList.remove('modal-open'); // Hide
         }
 
         function toggleTheme() {
+            const hljsLight = document.getElementById('hljs-light');
+            const hljsDark = document.getElementById('hljs-dark');
+            
             if (body.getAttribute('data-theme') === 'dark') {
                 body.removeAttribute('data-theme');
                 localStorage.setItem('theme', 'light');
                 themeToggle.checked = false;
+                hljsLight.disabled = false;
+                hljsDark.disabled = true;
             } else {
                 body.setAttribute('data-theme', 'dark');
                 localStorage.setItem('theme', 'dark');
                 themeToggle.checked = true;
+                hljsLight.disabled = true;
+                hljsDark.disabled = false;
             }
         }
 
@@ -730,6 +787,71 @@ modal.classList.remove('modal-open'); // Hide
             btn.addEventListener('click', () => {
                 btn.parentElement.style.display = 'none';
             });
+        });
+        
+        // Copy code function
+        function copyCode(button) {
+            const codeContent = button.closest('.code-block').querySelector('.code-content');
+            const text = codeContent.textContent;
+            
+            navigator.clipboard.writeText(text).then(() => {
+                const originalText = button.textContent;
+                button.textContent = 'Copied!';
+                button.classList.add('copied');
+                
+                setTimeout(() => {
+                    button.textContent = originalText;
+                    button.classList.remove('copied');
+                }, 2000);
+            }).catch(err => {
+                console.error('Failed to copy: ', err);
+            });
+        }
+        
+        // Convert old code blocks to new structure
+        function convertCodeBlocks() {
+            const oldCodeBlocks = document.querySelectorAll('.code-block:not(.converted)');
+            
+            oldCodeBlocks.forEach(block => {
+                // Skip if already converted
+                if (block.querySelector('.code-header')) return;
+                
+                const content = block.innerHTML.trim();
+                const language = detectLanguage(content);
+                
+                block.innerHTML = `
+                    <div class="code-header">
+                        <span class="code-lang">${language}</span>
+                        <button class="copy-btn" onclick="copyCode(this)">Copy</button>
+                    </div>
+                    <div class="code-content"><code class="language-${language.toLowerCase()}">${content}</code></div>
+                `;
+                
+                block.classList.add('converted');
+            });
+            
+            // Apply syntax highlighting
+            hljs.highlightAll();
+        }
+        
+        // Simple language detection
+        function detectLanguage(content) {
+            if (content.includes('<!DOCTYPE') || content.includes('<html') || content.includes('<div')) {
+                return 'HTML';
+            } else if (content.includes('document.') || content.includes('function') || content.includes('const ') || content.includes('let ')) {
+                return 'JavaScript';
+            } else if (content.includes('{') && content.includes(':') && content.includes(';')) {
+                return 'CSS';
+            } else if (content.includes('npm ') || content.includes('$')) {
+                return 'bash';
+            } else {
+                return 'text';
+            }
+        }
+        
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            convertCodeBlocks();
         });
     </script>
 </body>
