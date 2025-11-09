@@ -1092,12 +1092,6 @@ h2, h3, h4, h5, h6 {
 .tooltip {
   position: relative;
   display: inline-block;
-  
-  &:hover .tooltip-text {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-  }
 }
 
 .tooltip-text {
@@ -1116,6 +1110,7 @@ h2, h3, h4, h5, h6 {
   transition: all 0.3s ease;
   z-index: 1000;
   
+  // Arrow for top tooltip (default)
   &:after {
     content: "";
     position: absolute;
@@ -1126,6 +1121,7 @@ h2, h3, h4, h5, h6 {
     border-top-color: var(--button-bg);
   }
   
+  // Right positioned tooltip
   &.tooltip-right {
     bottom: auto;
     left: 125%;
@@ -1134,14 +1130,14 @@ h2, h3, h4, h5, h6 {
     
     &:after {
       top: 50%;
-      left: 0;
-      transform: translateX(-100%) translateY(-50%);
+      left: -5px;
+      transform: translateY(-50%);
       border: 5px solid transparent;
       border-right-color: var(--button-bg);
-      border-top-color: transparent;
     }
   }
   
+  // Left positioned tooltip
   &.tooltip-left {
     bottom: auto;
     right: 125%;
@@ -1151,14 +1147,31 @@ h2, h3, h4, h5, h6 {
     
     &:after {
       top: 50%;
-      right: 0;
-      left: auto;
-      transform: translateX(100%) translateY(-50%);
+      right: -5px;
+      transform: translateY(-50%);
       border: 5px solid transparent;
       border-left-color: var(--button-bg);
-      border-top-color: transparent;
     }
   }
+}
+
+// Hover states
+.tooltip:hover .tooltip-text {
+  opacity: 1;
+  visibility: visible;
+}
+
+// Fix transform on hover for each direction
+.tooltip:hover .tooltip-text:not(.tooltip-right):not(.tooltip-left) {
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltip:hover .tooltip-text.tooltip-right {
+  transform: translateY(-50%) translateX(0);
+}
+
+.tooltip:hover .tooltip-text.tooltip-left {
+  transform: translateY(-50%) translateX(0);
 }
 
 // Alert/Notification component

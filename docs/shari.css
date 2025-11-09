@@ -1012,11 +1012,6 @@ h2, h3, h4, h5, h6 {
   position: relative;
   display: inline-block;
 }
-.tooltip:hover .tooltip-text {
-  opacity: 1;
-  visibility: visible;
-  transform: translateY(0);
-}
 
 .tooltip-text {
   position: absolute;
@@ -1051,11 +1046,10 @@ h2, h3, h4, h5, h6 {
 }
 .tooltip-text.tooltip-right:after {
   top: 50%;
-  left: 0;
-  transform: translateX(-100%) translateY(-50%);
+  left: -5px;
+  transform: translateY(-50%);
   border: 5px solid transparent;
   border-right-color: var(--button-bg);
-  border-top-color: transparent;
 }
 .tooltip-text.tooltip-left {
   bottom: auto;
@@ -1066,12 +1060,27 @@ h2, h3, h4, h5, h6 {
 }
 .tooltip-text.tooltip-left:after {
   top: 50%;
-  right: 0;
-  left: auto;
-  transform: translateX(100%) translateY(-50%);
+  right: -5px;
+  transform: translateY(-50%);
   border: 5px solid transparent;
   border-left-color: var(--button-bg);
-  border-top-color: transparent;
+}
+
+.tooltip:hover .tooltip-text {
+  opacity: 1;
+  visibility: visible;
+}
+
+.tooltip:hover .tooltip-text:not(.tooltip-right):not(.tooltip-left) {
+  transform: translateX(-50%) translateY(0);
+}
+
+.tooltip:hover .tooltip-text.tooltip-right {
+  transform: translateY(-50%) translateX(0);
+}
+
+.tooltip:hover .tooltip-text.tooltip-left {
+  transform: translateY(-50%) translateX(0);
 }
 
 .alert {
