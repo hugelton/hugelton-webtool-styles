@@ -25,6 +25,8 @@ html {
   --color-yellow: #009844;
   --color-blue: #c30d23;
   --color-green: #036eb7;
+  --white: #ffffff;
+  --black: #000000;
 }
 
 [data-theme=dark] {
@@ -95,30 +97,46 @@ h2, h3, h4, h5, h6 {
   font-size: 1rem;
   font-weight: 400;
   transition: all 0.3s ease;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  vertical-align: middle;
   text-decoration: none;
 }
-.button:hover {
+.button:hover:not(:disabled) {
   opacity: 0.8;
+  transform: translateY(-1px);
 }
-.button:active {
+.button:active:not(:disabled) {
   transform: scale(0.95);
+}
+.button:focus {
+  outline: none;
+  box-shadow: 0 0 0 2px var(--body-text);
+}
+.button:disabled, .button[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  transform: none;
+}
+.button:disabled:hover, .button[disabled]:hover {
+  opacity: 0.5;
+  transform: none;
 }
 .button.danger {
   background: var(--color-blue);
-  color: white;
+  color: var(--white);
 }
 .button.warning {
   background: var(--color-red);
-  color: white;
+  color: var(--white);
 }
 .button.success {
   background: var(--color-yellow);
-  color: white;
+  color: var(--white);
 }
 .button.info {
   background: var(--color-green);
-  color: white;
+  color: var(--white);
 }
 
 .toggle {
@@ -163,12 +181,25 @@ h2, h3, h4, h5, h6 {
   border-radius: 50%;
 }
 
+:root .toggle input:checked + .toggle-slider {
+  background-color: var(--toggle-bg);
+}
+
+:root .toggle input:checked + .toggle-slider:before {
+  background-color: var(--black);
+}
+
+[data-theme=dark] .toggle input:checked + .toggle-slider:before {
+  background-color: var(--black);
+}
+
 .textfield {
   width: 100%;
   padding: 0.5rem;
   background: var(--textfield-bg);
   color: var(--textfield-text);
   border: 2px solid transparent;
+  border-radius: 0.5rem;
   font-family: inherit;
   font-size: 1rem;
   transition: all 0.3s ease;
@@ -177,6 +208,11 @@ h2, h3, h4, h5, h6 {
   outline: none;
   border-color: var(--body-text);
   box-shadow: 0 0 0 1px var(--body-text);
+}
+.textfield:disabled, .textfield[disabled] {
+  opacity: 0.5;
+  cursor: not-allowed;
+  background: var(--toggle-bg);
 }
 .textfield::placeholder {
   color: var(--body-text);
@@ -357,22 +393,51 @@ h2, h3, h4, h5, h6 {
 .box.box-primary {
   background: var(--color-green);
   border-color: var(--color-green);
-  color: white;
+  color: var(--white);
 }
 .box.box-success {
   background: var(--color-yellow);
   border-color: var(--color-yellow);
-  color: white;
+  color: var(--white);
 }
 .box.box-warning {
   background: var(--color-red);
   border-color: var(--color-red);
-  color: white;
+  color: var(--white);
 }
 .box.box-danger {
   background: var(--color-blue);
   border-color: var(--color-blue);
-  color: white;
+  color: var(--white);
+}
+.box.box-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.box.box-vcenter {
+  display: flex;
+  align-items: center;
+}
+.box.box-hcenter {
+  display: flex;
+  justify-content: center;
+}
+.box.box-top {
+  display: flex;
+  align-items: flex-start;
+}
+.box.box-bottom {
+  display: flex;
+  align-items: flex-end;
+}
+.box.box-left {
+  display: flex;
+  justify-content: flex-start;
+}
+.box.box-right {
+  display: flex;
+  justify-content: flex-end;
 }
 
 .text-center {
@@ -773,7 +838,7 @@ h2, h3, h4, h5, h6 {
   top: 0.1rem;
   width: 0.3rem;
   height: 0.6rem;
-  border: solid white;
+  border: solid var(--white);
   border-width: 0 2px 2px 0;
   opacity: 0;
   transform: rotate(45deg) scale(0.8);
@@ -781,7 +846,7 @@ h2, h3, h4, h5, h6 {
 }
 
 [data-theme=dark] .checkbox-mark:after {
-  border-color: #000000;
+  border-color: var(--black);
 }
 
 .radio {
@@ -826,7 +891,7 @@ h2, h3, h4, h5, h6 {
   top: 50%;
   width: 0.4rem;
   height: 0.4rem;
-  background: white;
+  background: var(--white);
   border-radius: 50%;
   opacity: 0;
   transform: translate(-50%, -50%) scale(0.5);
@@ -834,7 +899,7 @@ h2, h3, h4, h5, h6 {
 }
 
 [data-theme=dark] .radio-mark:after {
-  background: #000;
+  background: var(--black);
 }
 [data-theme=dark] .table th,
 [data-theme=dark] .table td {
@@ -857,19 +922,19 @@ h2, h3, h4, h5, h6 {
 }
 .badge.badge-success {
   background: var(--color-yellow);
-  color: white;
+  color: var(--white);
 }
 .badge.badge-warning {
   background: var(--color-red);
-  color: white;
+  color: var(--white);
 }
 .badge.badge-danger {
   background: var(--color-blue);
-  color: white;
+  color: var(--white);
 }
 .badge.badge-info {
   background: var(--color-green);
-  color: white;
+  color: var(--white);
 }
 
 .chip {
