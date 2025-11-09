@@ -208,7 +208,11 @@ h2, h3, h4, h5, h6 {
   }
 }
 
-// Light mode: ON toggle handle should be black
+// Light mode: ON toggle background and handle
+:root .toggle input:checked + .toggle-slider {
+  background-color: #cccccc;
+}
+
 :root .toggle input:checked + .toggle-slider:before {
   background-color: #000000;
 }
